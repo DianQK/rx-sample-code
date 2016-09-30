@@ -1,0 +1,5 @@
+github "ReactiveX/RxSwift" "3.0.0-beta.1"
+github "mac-cain13/R.swift.Library" ~>3.0
+github "DianQK/SwiftyJSON" ~>3.0
+github "DianQK/RxExtensions" ~>0.1
+github "RxSwiftCommunity/RxDataSources" "1.0.0-beta.2"

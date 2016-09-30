@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nsx-hR-30s">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="pUq-HY-U3Q">
+            <objects>
+                <navigationController id="nsx-hR-30s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmk-dU-Ms9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7cv-YS-3he"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDQ-3Z-8tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-663" y="137"/>
+        </scene>
+        <!--Xcode Help-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="PDF_Expert_Contents" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQl-E7-T53">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.46274510025978088" green="0.47450980544090271" blue="0.49411764740943909" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="sCP-rz-8th">
+                                    <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpandedCell" id="neS-ov-cW8" customClass="ExpandedTableViewCell" customModule="PDF_Expert_Contents" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neS-ov-cW8" id="RqS-oW-gS6">
+                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0E-k6-Eo2">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="94G-eX-xFS">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="UzO-zb-Drc"/>
+                                                        <constraint firstAttribute="height" constant="10" id="WII-R3-Ezi"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="94G-eX-xFS" firstAttribute="top" secondItem="RqS-oW-gS6" secondAttribute="top" constant="16" id="2W4-Dm-JH0"/>
+                                                <constraint firstItem="V0E-k6-Eo2" firstAttribute="top" secondItem="RqS-oW-gS6" secondAttribute="top" constant="10" id="cfP-At-Rw0"/>
+                                                <constraint firstAttribute="bottom" secondItem="V0E-k6-Eo2" secondAttribute="bottom" constant="10" id="dkp-W7-MKH"/>
+                                                <constraint firstItem="V0E-k6-Eo2" firstAttribute="leading" secondItem="94G-eX-xFS" secondAttribute="trailing" constant="15" id="jXQ-wC-C18"/>
+                                                <constraint firstItem="94G-eX-xFS" firstAttribute="leading" secondItem="RqS-oW-gS6" secondAttribute="leading" constant="15" id="je7-6c-zA2"/>
+                                                <constraint firstAttribute="trailing" secondItem="V0E-k6-Eo2" secondAttribute="trailing" constant="15" id="lma-Iw-AO0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="expandMarkImageView" destination="94G-eX-xFS" id="5Fe-h2-KLK"/>
+                                            <outlet property="titleLabel" destination="V0E-k6-Eo2" id="9g9-iX-9sa"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EQl-E7-T53" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0ez-1P-sN5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EQl-E7-T53" secondAttribute="bottom" id="6QI-ud-qzb"/>
+                            <constraint firstAttribute="trailing" secondItem="EQl-E7-T53" secondAttribute="trailing" id="Ft2-IA-Dg9"/>
+                            <constraint firstItem="EQl-E7-T53" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WHc-AF-vAO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Xcode Help" id="I2V-uq-ukM"/>
+                    <connections>
+                        <outlet property="contentsTableView" destination="EQl-E7-T53" id="aaF-5m-F6c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="136"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow" width="23" height="26"/>
+    </resources>
+</document>
