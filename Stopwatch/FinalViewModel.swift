@@ -37,17 +37,17 @@ struct FinalViewModel: StopwatchViewModelProtocol {
         let resetALapTrigger = input.resetALapTrigger.shareReplay(1)
         
         let mappings: [Automaton<State, Input>.NextMapping] = [
-            /*  Input  | fromState => toState                    |  Effect */
-            /* ------------------------------------------------------------*/
-            .start | ([.reseted, .stopped].contains => .timing)  | .empty(),
-            .stop  | (.timing                       => .stopped) | .empty(),
-            .reset | (.stopped                      => .reseted) | .empty(),
+        /*  Input  | fromState => toState                      |  Effect */
+        /* --------------------------------------------------------------*/
+            .start | [.reseted, .stopped].contains => .timing  | .empty(),
+            .stop  | .timing                       => .stopped | .empty(),
+            .reset | .stopped                      => .reseted | .empty(),
             ]
         
         let(inputSignal, inputObserver) = Observable<Input>.pipe()
         
         automaton = Automaton(state: .reseted, input: inputSignal, mapping: reduce(mappings), strategy: .latest)
-        
+
         Observable.from([
             startAStopTrigger
                 .withLatestFrom(automaton.state.asObservable())

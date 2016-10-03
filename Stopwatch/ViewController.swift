@@ -25,9 +25,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.displayTime.bindTo(displayTimeLabel.rx.text).addDisposableTo(rx.disposeBag)
-        viewModel.resetALapStyle.bindTo(resetButton.rx.style).addDisposableTo(rx.disposeBag)
-        viewModel.startAStopStyle.bindTo(startButton.rx.style).addDisposableTo(rx.disposeBag)
+        viewModel.displayTime
+            .bindTo(displayTimeLabel.rx.text)
+            .addDisposableTo(rx.disposeBag)
+
+        viewModel.resetALapStyle
+            .bindTo(resetButton.rx.style)
+            .addDisposableTo(rx.disposeBag)
+        viewModel.startAStopStyle
+            .bindTo(startButton.rx.style)
+            .addDisposableTo(rx.disposeBag)
+
         viewModel.displayElements
             .bindTo(lapsTableView.rx.items(cellIdentifier: "LapTableViewCell")) { index, element, cell in
                 element.displayTime.bindTo(cell.detailTextLabel?.rx.text)?.addDisposableTo(cell.rx.prepareForReuseBag)
