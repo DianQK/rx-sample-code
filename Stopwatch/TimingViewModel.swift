@@ -45,6 +45,8 @@ struct TimingViewModel: StopwatchViewModelProtocol {
             ]
         
         let (inputSignal, inputObserver) = Observable<Input>.pipe()
+
+        Observable.combineLatest(<#T##collection: Collection##Collection#>, <#T##resultSelector: ([C.Iterator.Element.E]) throws -> Element##([C.Iterator.Element.E]) throws -> Element#>)
         
         automaton = Automaton(state: .reseted, input: inputSignal, mapping: reduce(mappings), strategy: .latest)
         
@@ -64,7 +66,7 @@ struct TimingViewModel: StopwatchViewModelProtocol {
                     case .reseted, .timing: return Observable.empty()
                     case .stopped: return Observable.just(.reset)
                     }
-            },
+            }
             ])
             .merge()
             .subscribe(onNext: inputObserver.onNext)
