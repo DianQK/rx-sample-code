@@ -72,7 +72,9 @@ typealias CommitSectionModel = SectionModel<String, Commit>
 
 class RefreshTableViewController: UITableViewController {
 
-    let dataSource = RxTableViewSectionedReloadDataSource<CommitSectionModel>()
+    @IBOutlet private weak var typeSegmentedControl: UISegmentedControl!
+
+    private let dataSource = RxTableViewSectionedReloadDataSource<CommitSectionModel>()
 
     override func viewDidLoad() {
         super.viewDidLoad()

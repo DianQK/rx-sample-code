@@ -40,6 +40,17 @@
 		26DF41A61DA28A4C00E94741 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */; };
 		26DF41A81DA2910400E94741 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A71DA2910400E94741 /* SectionTableViewController.swift */; };
 		26DF41AA1DA2A56100E94741 /* CustomSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */; };
+		26E732E51DA7968600220214 /* Cell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732D91DA7968600220214 /* Cell+Rx.swift */; };
+		26E732E61DA7968600220214 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DA1DA7968600220214 /* DatePickerCell.swift */; };
+		26E732E71DA7968600220214 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DB1DA7968600220214 /* SliderCell.swift */; };
+		26E732E81DA7968600220214 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DC1DA7968600220214 /* SwitchCell.swift */; };
+		26E732E91DA7968600220214 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DD1DA7968600220214 /* TextFieldCell.swift */; };
+		26E732EA1DA7968600220214 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DE1DA7968600220214 /* Config.swift */; };
+		26E732EB1DA7968600220214 /* Expandable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E732DF1DA7968600220214 /* Expandable.storyboard */; };
+		26E732ED1DA7968600220214 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E11DA7968600220214 /* Profile.swift */; };
+		26E732EF1DA7968600220214 /* SafeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E31DA7968600220214 /* SafeCollection.swift */; };
+		26E732F01DA7968600220214 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E41DA7968600220214 /* ViewController.swift */; };
+		26E732F21DA897E000220214 /* NameInputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732F11DA897E000220214 /* NameInputTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +102,17 @@
 		26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
 		26DF41A71DA2910400E94741 /* SectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionTableViewController.swift; sourceTree = "<group>"; };
+		26E732D91DA7968600220214 /* Cell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cell+Rx.swift"; sourceTree = "<group>"; };
+		26E732DA1DA7968600220214 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		26E732DB1DA7968600220214 /* SliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
+		26E732DC1DA7968600220214 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
+		26E732DD1DA7968600220214 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		26E732DE1DA7968600220214 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		26E732DF1DA7968600220214 /* Expandable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expandable.storyboard; sourceTree = "<group>"; };
+		26E732E11DA7968600220214 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		26E732E31DA7968600220214 /* SafeCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeCollection.swift; sourceTree = "<group>"; };
+		26E732E41DA7968600220214 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26E732F11DA897E000220214 /* NameInputTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +154,7 @@
 		266738941DA26CED00AF351A /* RxDataSourcesExample */ = {
 			isa = PBXGroup;
 			children = (
+				26E732D71DA7968600220214 /* Expandable */,
 				2643EF671DA49B9400CC0839 /* R.generated.swift */,
 				266738951DA26CED00AF351A /* AppDelegate.swift */,
 				266738991DA26CED00AF351A /* Main.storyboard */,
@@ -167,6 +190,32 @@
 				266738BC1DA26D3E00AF351A /* Rswift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26E732D71DA7968600220214 /* Expandable */ = {
+			isa = PBXGroup;
+			children = (
+				26E732D81DA7968600220214 /* Cells */,
+				26E732DE1DA7968600220214 /* Config.swift */,
+				26E732DF1DA7968600220214 /* Expandable.storyboard */,
+				26E732E11DA7968600220214 /* Profile.swift */,
+				26E732E31DA7968600220214 /* SafeCollection.swift */,
+				26E732E41DA7968600220214 /* ViewController.swift */,
+				26E732F11DA897E000220214 /* NameInputTableViewController.swift */,
+			);
+			path = Expandable;
+			sourceTree = "<group>";
+		};
+		26E732D81DA7968600220214 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				26E732D91DA7968600220214 /* Cell+Rx.swift */,
+				26E732DA1DA7968600220214 /* DatePickerCell.swift */,
+				26E732DB1DA7968600220214 /* SliderCell.swift */,
+				26E732DC1DA7968600220214 /* SwitchCell.swift */,
+				26E732DD1DA7968600220214 /* TextFieldCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E732EB1DA7968600220214 /* Expandable.storyboard in Resources */,
 				266738A01DA26CED00AF351A /* LaunchScreen.storyboard in Resources */,
 				2667389D1DA26CED00AF351A /* Assets.xcassets in Resources */,
 				2667389B1DA26CED00AF351A /* Main.storyboard in Resources */,
@@ -252,7 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT/RxDataSourcesExample\"";
+			shellScript = "if which \"$SRCROOT/rswift\" >/dev/null; then\n    \"$SRCROOT/rswift\" \"$SRCROOT/RxDataSourcesExample\"\nelse\n    echo \"warning: rswift not installed.\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -261,19 +311,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E732F01DA7968600220214 /* ViewController.swift in Sources */,
 				26AAD5761DA3DF29001F0482 /* TapCellTableViewController.swift in Sources */,
 				26DF41AA1DA2A56100E94741 /* CustomSectionTableViewController.swift in Sources */,
+				26E732EF1DA7968600220214 /* SafeCollection.swift in Sources */,
 				26DF41A81DA2910400E94741 /* SectionTableViewController.swift in Sources */,
 				26AAD57A1DA3FD29001F0482 /* CellButtonClickTableViewController.swift in Sources */,
+				26E732E71DA7968600220214 /* SliderCell.swift in Sources */,
 				266738961DA26CED00AF351A /* AppDelegate.swift in Sources */,
 				26DF41A61DA28A4C00E94741 /* TipTableViewCell.swift in Sources */,
 				2643EF6E1DA52BD300CC0839 /* RefreshTableViewController.swift in Sources */,
 				265953921DA26E5C009289A8 /* CellIdentifierViewController.swift in Sources */,
 				26AAD57C1DA41A4B001F0482 /* MultipleCellTableViewController.swift in Sources */,
 				2643EF7D1DA6359C00CC0839 /* Operators.swift in Sources */,
+				26E732E91DA7968600220214 /* TextFieldCell.swift in Sources */,
+				26E732E81DA7968600220214 /* SwitchCell.swift in Sources */,
 				26821CF81DA28027002D2406 /* CellIdentifierTableViewController.swift in Sources */,
+				26E732E61DA7968600220214 /* DatePickerCell.swift in Sources */,
+				26E732F21DA897E000220214 /* NameInputTableViewController.swift in Sources */,
 				2643EF811DA6734300CC0839 /* TodoTableViewController.swift in Sources */,
 				2643EF7A1DA6310400CC0839 /* ChangeSwitchTableViewController.swift in Sources */,
+				26E732EA1DA7968600220214 /* Config.swift in Sources */,
+				26E732ED1DA7968600220214 /* Profile.swift in Sources */,
+				26E732E51DA7968600220214 /* Cell+Rx.swift in Sources */,
 				2643EF681DA49B9400CC0839 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

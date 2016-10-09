@@ -71,11 +71,11 @@ enum Profile {
     case detail(title: String, detail: String)
 }
 
-typealias ProfileSectionModel = SectionModel<String, Profile>
+private typealias ProfileSectionModel = SectionModel<String, Profile>
 
 class MultipleCellTableViewController: UITableViewController {
 
-    let dataSource = RxTableViewSectionedReloadDataSource<ProfileSectionModel>()
+    private let dataSource = RxTableViewSectionedReloadDataSource<ProfileSectionModel>()
 
     override func viewDidLoad() {
         super.viewDidLoad()

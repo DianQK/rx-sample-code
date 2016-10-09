@@ -70,16 +70,18 @@ struct ProfileItem: IDHashable, IdentifiableType {
                 let fullname = title.value.components(separatedBy: " ").safe
                 let firstName = Variable(fullname[0] ?? "")
                 let lastName = Variable(fullname[1] ?? "")
-                let firstSubItem = ProfileItem(type: Type.input(Input.textField(text: firstName, placeholder: "Firstname")))
-                let lastSubItem = ProfileItem(type: Type.input(Input.textField(text: lastName, placeholder: "Lastname")))
+
+                let firstSubItem = ProfileItem(type: .input(.textField(text: firstName, placeholder: "Firstname")))
+                let lastSubItem = ProfileItem(type: .input(.textField(text: lastName, placeholder: "Lastname")))
                 subItems = [firstSubItem, lastSubItem]
+
                 Observable.combineLatest(firstName.asObservable(), lastName.asObservable()) { $0 + " " + $1 }
                     .bindTo(title)
                     .addDisposableTo(disposeBag)
                 id = "fullname"
             case .dateOfBirth:
                 let date = Variable(Date())
-                let subItem = ProfileItem(type: Type.input(Input.datePick(date)))
+                let subItem = ProfileItem(type: .input(.datePick(date)))
                 subItems = [subItem]
                 date.asObservable()
                     .map(DateFormatter().config.longStyle.string)
@@ -88,7 +90,7 @@ struct ProfileItem: IDHashable, IdentifiableType {
                 id = "dateOfBirth"
             case .maritalStatus:
                 let isMarried = Variable(true)
-                let subItem = ProfileItem(type: Type.input(Input.status(title: "Off = Single, On = Married", isOn: isMarried)))
+                let subItem = ProfileItem(type: .input(.status(title: "Off = Single, On = Married", isOn: isMarried)))
                 subItems = [subItem]
                 isMarried.asObservable()
                     .skip(1)
@@ -97,27 +99,39 @@ struct ProfileItem: IDHashable, IdentifiableType {
                     .addDisposableTo(disposeBag)
                 id = "maritalStatus"
             case .favoriteColor:
-                let red = ProfileItem(type: Type.input(Input.title("Red", favorite: title)))
-                let green = ProfileItem(type: Type.input(Input.title("Green", favorite: title)))
-                let blue = ProfileItem(type: Type.input(Input.title("Blue", favorite: title)))
+                let red = ProfileItem(type: .input(.title("Red", favorite: title)))
+                let green = ProfileItem(type: .input(.title("Green", favorite: title)))
+                let blue = ProfileItem(type: .input(.title("Blue", favorite: title)))
                 subItems = [red, green, blue]
                 id = "favoriteColor"
             case .favoriteSport:
-                let football = ProfileItem(type: Type.input(Input.title("Football", favorite: title)))
-                let basketball = ProfileItem(type: Type.input(Input.title("Basketball", favorite: title)))
-                let baseball = ProfileItem(type: Type.input(Input.title("Baseball", favorite: title)))
-                let volleyball = ProfileItem(type: Type.input(Input.title("Volleyball", favorite: title)))
+                let football = ProfileItem(type: .input(.title("Football", favorite: title)))
+                let basketball = ProfileItem(type: .input(.title("Basketball", favorite: title)))
+                let baseball = ProfileItem(type: .input(.title("Baseball", favorite: title)))
+                let volleyball = ProfileItem(type: .input(.title("Volleyball", favorite: title)))
                 subItems = [football, basketball, baseball, volleyball]
                 id = "favoriteSport"
             case .level:
                 let level = Variable(0)
-                let subItem = ProfileItem(type: Type.input(Input.level(level)))
+                let subItem = ProfileItem(type: .input(.level(level)))
                 subItems = [subItem]
                 level.asObservable()
                     .map(String.init)
                     .bindTo(title)
                     .addDisposableTo(disposeBag)
                 id = "level"
+            }
+            do { // 选择好后，直接收起子项目
+                switch type {
+                case .favoriteColor, .favoriteSport:
+                    title.asObservable().skip(1)
+//                        .distinctUntilChanged()
+                        .subscribe(onNext: { _ in
+                            isExpanded.value = !isExpanded.value
+                        })
+                        .addDisposableTo(disposeBag)
+                default: break
+                }
             }
             self.subItems = isExpanded.asObservable()
                 .map { $0 ? subItems : [] }

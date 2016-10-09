@@ -52,18 +52,30 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 6 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `BasicCell`.
     static let basicCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "BasicCell")
     /// Reuse identifier `CommitTableViewCell`.
     static let commitTableViewCell: ReuseIdentifier<CommitTableViewCell> = ReuseIdentifier(identifier: "CommitTableViewCell")
+    /// Reuse identifier `DatePickerCell`.
+    static let datePickerCell: ReuseIdentifier<DatePickerCell> = ReuseIdentifier(identifier: "DatePickerCell")
     /// Reuse identifier `DetailTableViewCell`.
     static let detailTableViewCell: ReuseIdentifier<DetailTableViewCell> = ReuseIdentifier(identifier: "DetailTableViewCell")
     /// Reuse identifier `ImageTableViewCell`.
     static let imageTableViewCell: ReuseIdentifier<ImageTableViewCell> = ReuseIdentifier(identifier: "ImageTableViewCell")
     /// Reuse identifier `InfoTableViewCell`.
     static let infoTableViewCell: ReuseIdentifier<InfoTableViewCell> = ReuseIdentifier(identifier: "InfoTableViewCell")
+    /// Reuse identifier `NormalCell`.
+    static let normalCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "NormalCell")
+    /// Reuse identifier `NormalItemCell`.
+    static let normalItemCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "NormalItemCell")
+    /// Reuse identifier `SliderCell`.
+    static let sliderCell: ReuseIdentifier<SliderCell> = ReuseIdentifier(identifier: "SliderCell")
+    /// Reuse identifier `SwitchCell`.
+    static let switchCell: ReuseIdentifier<SwitchCell> = ReuseIdentifier(identifier: "SwitchCell")
+    /// Reuse identifier `TextFieldCell`.
+    static let textFieldCell: ReuseIdentifier<TextFieldCell> = ReuseIdentifier(identifier: "TextFieldCell")
     /// Reuse identifier `TipTableViewCell`.
     static let tipTableViewCell: ReuseIdentifier<TipTableViewCell> = ReuseIdentifier(identifier: "TipTableViewCell")
     
@@ -75,12 +87,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `Expandable`.
+    static let expandable = _R.storyboard.expandable()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    
+    /// `UIStoryboard(name: "Expandable", bundle: ...)`
+    static func expandable(_: Void = ()) -> UIStoryboard {
+      return UIStoryboard(resource: R.storyboard.expandable)
+    }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIStoryboard {
@@ -118,6 +137,15 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try main.validate()
+    }
+    
+    struct expandable: StoryboardResourceWithInitialControllerType {
+      typealias InitialController = ViewController
+      
+      let bundle = _R.hostingBundle
+      let name = "Expandable"
+      
+      fileprivate init() {}
     }
     
     struct launchScreen: StoryboardResourceWithInitialControllerType {
