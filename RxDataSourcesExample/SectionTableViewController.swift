@@ -28,7 +28,7 @@ class SectionTableViewController: UITableViewController {
         }
 
         dataSource.titleForHeaderInSection = { dataSource, section in
-            return dataSource.sectionAtIndex(section).model
+            return dataSource[section].model
         }
 
         let sections = Observable.just([

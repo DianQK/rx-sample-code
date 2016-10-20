@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let fetch = Observable
-            .just(R.file.contentsJson, scheduler: SerialDispatchQueueScheduler(globalConcurrentQueueQOS: DispatchQueueSchedulerQOS.background))
+            .just(R.file.contentsJson, scheduler: SerialDispatchQueueScheduler(qos: .background))
             .shareReplay(1)
 
         let expandableItems = fetch

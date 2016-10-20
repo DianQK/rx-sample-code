@@ -45,9 +45,11 @@ class TodoTableViewController: UITableViewController {
             let delete = tableView.rx.itemDeleted.map { $0.row }
                 .map(Action.delete)
 
+            let defaultTodoList = ["Todo 1", "Todo 2", "Todo 3"]
+
             Observable.from([add, delete])
                 .merge()
-                .scan(["Todo 1", "Todo 2", "Todo 3"]) { acc, x in
+                .scan(defaultTodoList) { acc, x in
                     switch x {
                     case let .add(content):
                         return [content] + acc
@@ -57,7 +59,7 @@ class TodoTableViewController: UITableViewController {
                         return newItems
                     }
                 }
-                .startWith(["Todo 1", "Todo 2", "Todo 3"])
+                .startWith(defaultTodoList)
                 .map { [TodoSectionModel(model: "", items: $0)] }
                 .bindTo(tableView.rx.items(dataSource: dataSource))
                 .addDisposableTo(rx.disposeBag)

@@ -6,13 +6,9 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
-#if !RX_NO_MODULE
+import UIKit
 import RxSwift
 import RxCocoa
-#endif
-
-import UIKit
 
 // Two way binding operator between control property and variable, that's all it takes {
 
@@ -33,15 +29,16 @@ func nonMarkedText(_ textInput: UITextInput) -> String? {
 
     guard let startRange = textInput.textRange(from: start, to: markedTextRange.start),
         let endRange = textInput.textRange(from: markedTextRange.end, to: end) else {
-        return text
+            return text
     }
 
     return (textInput.text(in: startRange) ?? "") + (textInput.text(in: endRange) ?? "")
 }
 
 func <-> <Base: UITextInput>(textInput: TextInput<Base>, variable: Variable<String>) -> Disposable {
+
     let bindToUIDisposable = variable.asObservable()
-        .bindTo(textInput.text)
+        .bindTo(textInput.text.orEmpty)
     let bindToVariable = textInput.text
         .subscribe(onNext: { [weak base = textInput.base] n in
             guard let base = base else {
@@ -53,10 +50,10 @@ func <-> <Base: UITextInput>(textInput: TextInput<Base>, variable: Variable<Stri
             /**
              In some cases `textInput.textRangeFromPosition(start, toPosition: end)` will return nil even though the underlying
              value is not nil. This appears to be an Apple bug. If it's not, and we are doing something wrong, please let us know.
-             The can be reproed easily if replace bottom code with 
-             
+             The can be reproed easily if replace bottom code with
+
              if nonMarkedTextValue != variable.value {
-                variable.value = nonMarkedTextValue ?? ""
+             variable.value = nonMarkedTextValue ?? ""
              }
 
              and you hit "Done" button on keyboard.
@@ -64,8 +61,8 @@ func <-> <Base: UITextInput>(textInput: TextInput<Base>, variable: Variable<Stri
             if let nonMarkedTextValue = nonMarkedTextValue, nonMarkedTextValue != variable.value {
                 variable.value = nonMarkedTextValue
             }
-        }, onCompleted:  {
-            bindToUIDisposable.dispose()
+            }, onCompleted:  {
+                bindToUIDisposable.dispose()
         })
 
     return Disposables.create(bindToUIDisposable, bindToVariable)
@@ -73,13 +70,13 @@ func <-> <Base: UITextInput>(textInput: TextInput<Base>, variable: Variable<Stri
 
 func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
     if T.self == String.self {
-//#if DEBUG
-//        fatalError("It is ok to delete this message, but this is here to warn that you are maybe trying to bind to some `rx_text` property directly to variable.\n" +
-//            "That will usually work ok, but for some languages that use IME, that simplistic method could cause unexpected issues because it will return intermediate results while text is being inputed.\n" +
-//            "REMEDY: Just use `textField <-> variable` instead of `textField.rx_text <-> variable`.\n" +
-//            "Find out more here: https://github.com/ReactiveX/RxSwift/issues/649\n"
-//            )
-//#endif
+        #if DEBUG
+            fatalError("It is ok to delete this message, but this is here to warn that you are maybe trying to bind to some `rx_text` property directly to variable.\n" +
+                "That will usually work ok, but for some languages that use IME, that simplistic method could cause unexpected issues because it will return intermediate results while text is being inputed.\n" +
+                "REMEDY: Just use `textField <-> variable` instead of `textField.rx_text <-> variable`.\n" +
+                "Find out more here: https://github.com/ReactiveX/RxSwift/issues/649\n"
+            )
+        #endif
     }
 
     let bindToUIDisposable = variable.asObservable()
@@ -87,14 +84,15 @@ func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable 
     let bindToVariable = property
         .subscribe(onNext: { n in
             variable.value = n
-        }, onCompleted:  {
-            bindToUIDisposable.dispose()
+            }, onCompleted:  {
+                bindToUIDisposable.dispose()
         })
-
+    
     return Disposables.create(bindToUIDisposable, bindToVariable)
 }
 
 // }
+
 
 func <-> <T: Equatable>(lhs: Variable<T>, rhs: Variable<T>) -> Disposable {
 

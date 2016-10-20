@@ -9,8 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxAutomaton
-import RxExtensions
+//import RxAutomaton
+//import RxExtensions
 
 struct TimingViewModel: StopwatchViewModelProtocol {
     
@@ -45,8 +45,6 @@ struct TimingViewModel: StopwatchViewModelProtocol {
             ]
         
         let (inputSignal, inputObserver) = Observable<Input>.pipe()
-
-        Observable.combineLatest(<#T##collection: Collection##Collection#>, <#T##resultSelector: ([C.Iterator.Element.E]) throws -> Element##([C.Iterator.Element.E]) throws -> Element#>)
         
         automaton = Automaton(state: .reseted, input: inputSignal, mapping: reduce(mappings), strategy: .latest)
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -14,8 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var lapsTableView: UITableView!
-    
+
     var type: StopwatchViewModelProtocol.Type = FinalViewModel.self
+
+    let disposeBag = DisposeBag()
 
     private lazy var viewModel: StopwatchViewModelProtocol = self.type.init(input: (
         startAStopTrigger: self.startButton.rx.tap.asObservable(),
@@ -25,28 +28,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.displayTime
-            .bindTo(displayTimeLabel.rx.text)
-            .addDisposableTo(rx.disposeBag)
+        do { // MARK: 展示时间
+            viewModel.displayTime
+                .bindTo(displayTimeLabel.rx.text)
+                .addDisposableTo(rx.disposeBag)
+        }
 
         viewModel.resetALapStyle
             .bindTo(resetButton.rx.style)
-            .addDisposableTo(rx.disposeBag)
+            .addDisposableTo(disposeBag)
         viewModel.startAStopStyle
             .bindTo(startButton.rx.style)
-            .addDisposableTo(rx.disposeBag)
+            .addDisposableTo(disposeBag)
 
         viewModel.displayElements
             .bindTo(lapsTableView.rx.items(cellIdentifier: "LapTableViewCell")) { index, element, cell in
-                element.displayTime.bindTo(cell.detailTextLabel?.rx.text)?.addDisposableTo(cell.rx.prepareForReuseBag)
-                element.color.bindTo(cell.detailTextLabel?.rx.textColor)?.addDisposableTo(cell.rx.prepareForReuseBag)
-                element.title.bindTo(cell.textLabel?.rx.text)?.addDisposableTo(cell.rx.prepareForReuseBag)
+                if let detailTextLabel = cell.detailTextLabel {
+                    element.displayTime.bindTo(detailTextLabel.rx.text).addDisposableTo(cell.rx.prepareForReuseBag)
+                }
+// element.color.bindTo(cell.detailTextLabel?.rx.textColor)?.addDisposableTo(cell.rx.prepareForReuseBag)
+//                element.title.bindTo(cell.textLabel?.rx.text)?.addDisposableTo(cell.rx.prepareForReuseBag)
             }
-            .addDisposableTo(rx.disposeBag)
+            .addDisposableTo(disposeBag)
 
     }
 
 }
-
-
-

@@ -1,8 +1,9 @@
-github "ReactiveX/RxSwift" "3.0.0-beta.2"
+github "ReactiveX/RxSwift" "3.0.0-rc.1"
 github "mac-cain13/R.swift.Library" ~>3.0
 github "SwiftyJSON/SwiftyJSON" ~>3.1
-github "DianQK/RxExtensions" ~>0.1
-github "RxSwiftCommunity/RxDataSources" "1.0.0-beta.3"
+github "DianQK/RxExtensions" ~>0.2
+github "RxSwiftCommunity/RxDataSources" "1.0.0-rc.1"
 github "DianQK/RxAutomaton" "swift/3.0"
-github "Alamofire/Alamofire" ~>4.0
-github "jdg/MBProgressHUD" ~>1.0
+github "Alamofire/Alamofire" ~> 4.0
+github "jdg/MBProgressHUD" ~> 1.0
+github "SnapKit/SnapKit" ~> 3.1

@@ -92,7 +92,7 @@ class TapCellTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as! HeaderView
-        header.title = dataSource.sectionAtIndex(section).model
+        header.title = dataSource[section].model
         return header
     }
 

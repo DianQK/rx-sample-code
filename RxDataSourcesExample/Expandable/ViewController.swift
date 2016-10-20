@@ -94,7 +94,7 @@ class ViewController: UIViewController {
             }
 
             dataSource.titleForHeaderInSection = { dataSource, section in
-                return dataSource.sectionAtIndex(section).model.rawValue
+                return dataSource[section].model.rawValue
             }
         }
 
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
             tableView.rx.modelSelected(ProfileItem.self)
                 .subscribe(onNext: { item in
                     switch item.type {
-                    case let .display(title, _, isExpanded):
+                    case let .display(_, _, isExpanded):
                         isExpanded.value = !isExpanded.value
                     case let .input(input):
                         switch input {
