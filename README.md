@@ -6,8 +6,6 @@
 
 仿 Apple 计时器逻辑，使用了 MVVM 和状态机，代码仅 200 行。
 
-> 目前不知为何引入 RxAutomaton 就会 crash =。= 现在拖的源码。
-
 ### [PDF-Expert-Contents](http://7xokf3.com1.z0.glb.clouddn.com/pdf-epert-demo-mute.mov)
 
 仿 PDF Expert 目录展开逻辑，支持无限层级展开。
