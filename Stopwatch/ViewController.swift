@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxExtensions
 
 class ViewController: UIViewController {
 
@@ -43,11 +44,9 @@ class ViewController: UIViewController {
 
         viewModel.displayElements
             .bindTo(lapsTableView.rx.items(cellIdentifier: "LapTableViewCell")) { index, element, cell in
-                if let detailTextLabel = cell.detailTextLabel {
-                    element.displayTime.bindTo(detailTextLabel.rx.text).addDisposableTo(cell.rx.prepareForReuseBag)
-                }
-// element.color.bindTo(cell.detailTextLabel?.rx.textColor)?.addDisposableTo(cell.rx.prepareForReuseBag)
-//                element.title.bindTo(cell.textLabel?.rx.text)?.addDisposableTo(cell.rx.prepareForReuseBag)
+                guard let detailTextLabel = cell.detailTextLabel else { return }
+                element.displayTime.bindTo(detailTextLabel.rx.text).addDisposableTo(cell.rx.prepareForReuseBag)
+                element.color.bindTo(detailTextLabel.rx.textColor).addDisposableTo(cell.rx.prepareForReuseBag)
             }
             .addDisposableTo(disposeBag)
 

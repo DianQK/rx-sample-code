@@ -28,6 +28,7 @@
 		26AAD5761DA3DF29001F0482 /* TapCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAD5751DA3DF29001F0482 /* TapCellTableViewController.swift */; };
 		26AAD57A1DA3FD29001F0482 /* CellButtonClickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAD5791DA3FD29001F0482 /* CellButtonClickTableViewController.swift */; };
 		26AAD57C1DA41A4B001F0482 /* MultipleCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAD57B1DA41A4B001F0482 /* MultipleCellTableViewController.swift */; };
+		26C4E3921DBDAF2E00D2F0D8 /* Expandable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C4E3901DBDAF2E00D2F0D8 /* Expandable.storyboard */; };
 		26DF41A61DA28A4C00E94741 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */; };
 		26DF41A81DA2910400E94741 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A71DA2910400E94741 /* SectionTableViewController.swift */; };
 		26DF41AA1DA2A56100E94741 /* CustomSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */; };
@@ -37,11 +38,9 @@
 		26E732E81DA7968600220214 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DC1DA7968600220214 /* SwitchCell.swift */; };
 		26E732E91DA7968600220214 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DD1DA7968600220214 /* TextFieldCell.swift */; };
 		26E732EA1DA7968600220214 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732DE1DA7968600220214 /* Config.swift */; };
-		26E732EB1DA7968600220214 /* Expandable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E732DF1DA7968600220214 /* Expandable.storyboard */; };
 		26E732ED1DA7968600220214 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E11DA7968600220214 /* Profile.swift */; };
 		26E732EF1DA7968600220214 /* SafeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E31DA7968600220214 /* SafeCollection.swift */; };
 		26E732F01DA7968600220214 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732E41DA7968600220214 /* ViewController.swift */; };
-		26E732F21DA897E000220214 /* NameInputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E732F11DA897E000220214 /* NameInputTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +67,7 @@
 		26AAD5751DA3DF29001F0482 /* TapCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapCellTableViewController.swift; sourceTree = "<group>"; };
 		26AAD5791DA3FD29001F0482 /* CellButtonClickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellButtonClickTableViewController.swift; sourceTree = "<group>"; };
 		26AAD57B1DA41A4B001F0482 /* MultipleCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleCellTableViewController.swift; sourceTree = "<group>"; };
+		26C4E3911DBDAF2E00D2F0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Expandable.storyboard; sourceTree = "<group>"; };
 		26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
 		26DF41A71DA2910400E94741 /* SectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionTableViewController.swift; sourceTree = "<group>"; };
@@ -77,11 +77,9 @@
 		26E732DC1DA7968600220214 /* SwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		26E732DD1DA7968600220214 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		26E732DE1DA7968600220214 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		26E732DF1DA7968600220214 /* Expandable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expandable.storyboard; sourceTree = "<group>"; };
 		26E732E11DA7968600220214 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		26E732E31DA7968600220214 /* SafeCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeCollection.swift; sourceTree = "<group>"; };
 		26E732E41DA7968600220214 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		26E732F11DA897E000220214 /* NameInputTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameInputTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,13 +161,12 @@
 		26E732D71DA7968600220214 /* Expandable */ = {
 			isa = PBXGroup;
 			children = (
+				26C4E3901DBDAF2E00D2F0D8 /* Expandable.storyboard */,
 				26E732D81DA7968600220214 /* Cells */,
 				26E732DE1DA7968600220214 /* Config.swift */,
-				26E732DF1DA7968600220214 /* Expandable.storyboard */,
 				26E732E11DA7968600220214 /* Profile.swift */,
 				26E732E31DA7968600220214 /* SafeCollection.swift */,
 				26E732E41DA7968600220214 /* ViewController.swift */,
-				26E732F11DA897E000220214 /* NameInputTableViewController.swift */,
 			);
 			path = Expandable;
 			sourceTree = "<group>";
@@ -248,7 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26E732EB1DA7968600220214 /* Expandable.storyboard in Resources */,
+				26C4E3921DBDAF2E00D2F0D8 /* Expandable.storyboard in Resources */,
 				266738A01DA26CED00AF351A /* LaunchScreen.storyboard in Resources */,
 				2667389D1DA26CED00AF351A /* Assets.xcassets in Resources */,
 				2667389B1DA26CED00AF351A /* Main.storyboard in Resources */,
@@ -316,7 +313,6 @@
 				26E732E81DA7968600220214 /* SwitchCell.swift in Sources */,
 				26821CF81DA28027002D2406 /* CellIdentifierTableViewController.swift in Sources */,
 				26E732E61DA7968600220214 /* DatePickerCell.swift in Sources */,
-				26E732F21DA897E000220214 /* NameInputTableViewController.swift in Sources */,
 				2643EF811DA6734300CC0839 /* TodoTableViewController.swift in Sources */,
 				2643EF7A1DA6310400CC0839 /* ChangeSwitchTableViewController.swift in Sources */,
 				26E732EA1DA7968600220214 /* Config.swift in Sources */,
@@ -343,6 +339,14 @@
 				2667389F1DA26CED00AF351A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		26C4E3901DBDAF2E00D2F0D8 /* Expandable.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26C4E3911DBDAF2E00D2F0D8 /* Base */,
+			);
+			name = Expandable.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -78,7 +78,7 @@ class CartViewController: UIViewController {
 
         totalPrice
             .map { $0 != 0 }
-            .bindTo(purchaseButton.rx.enabled)
+            .bindTo(purchaseButton.rx.isEnabled)
             .addDisposableTo(disposeBag)
 
         tableView.rx.itemSelected

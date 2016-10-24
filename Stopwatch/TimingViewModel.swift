@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-//import RxAutomaton
+import RxAutomaton
 //import RxExtensions
 
 struct TimingViewModel: StopwatchViewModelProtocol {

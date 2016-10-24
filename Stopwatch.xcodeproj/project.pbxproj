@@ -24,21 +24,10 @@
 		26A8829D1DB8B4240068A1DB /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A882981DB8B4240068A1DB /* RxDataSources.framework */; };
 		26A8829E1DB8B4240068A1DB /* RxExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A882991DB8B4240068A1DB /* RxExtensions.framework */; };
 		26A8829F1DB8B4240068A1DB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A8829A1DB8B4240068A1DB /* RxSwift.framework */; };
-		26B98B871DB8C40F00C11092 /* Automaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E11DB8BBBF000F27D3 /* Automaton.swift */; };
-		26B98B881DB8C40F00C11092 /* FlattenStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E21DB8BBBF000F27D3 /* FlattenStrategy.swift */; };
-		26B98B891DB8C40F00C11092 /* Mapping+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E31DB8BBBF000F27D3 /* Mapping+Helper.swift */; };
-		26B98B8A1DB8C40F00C11092 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E41DB8BBBF000F27D3 /* Reply.swift */; };
-		26B98B8B1DB8C40F00C11092 /* RxSwift+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E51DB8BBBF000F27D3 /* RxSwift+Pipe.swift */; };
-		26B98B8C1DB8C40F00C11092 /* RxSwift+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2613A3E61DB8BBBF000F27D3 /* RxSwift+Then.swift */; };
+		26C4E3931DBDB17E00D2F0D8 /* RxAutomaton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A882961DB8B4240068A1DB /* RxAutomaton.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2613A3E11DB8BBBF000F27D3 /* Automaton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automaton.swift; sourceTree = "<group>"; };
-		2613A3E21DB8BBBF000F27D3 /* FlattenStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlattenStrategy.swift; sourceTree = "<group>"; };
-		2613A3E31DB8BBBF000F27D3 /* Mapping+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mapping+Helper.swift"; sourceTree = "<group>"; };
-		2613A3E41DB8BBBF000F27D3 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
-		2613A3E51DB8BBBF000F27D3 /* RxSwift+Pipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Pipe.swift"; sourceTree = "<group>"; };
-		2613A3E61DB8BBBF000F27D3 /* RxSwift+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Then.swift"; sourceTree = "<group>"; };
 		26246E1B1D810A5A00F44CDA /* Stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26246E1E1D810A5A00F44CDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26246E201D810A5A00F44CDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C4E3931DBDB17E00D2F0D8 /* RxAutomaton.framework in Frameworks */,
 				26A8829C1DB8B4240068A1DB /* RxCocoa.framework in Frameworks */,
 				26A8829D1DB8B4240068A1DB /* RxDataSources.framework in Frameworks */,
 				26A8829E1DB8B4240068A1DB /* RxExtensions.framework in Frameworks */,
@@ -76,19 +66,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2613A3E01DB8BBBF000F27D3 /* Auto */ = {
-			isa = PBXGroup;
-			children = (
-				2613A3E11DB8BBBF000F27D3 /* Automaton.swift */,
-				2613A3E21DB8BBBF000F27D3 /* FlattenStrategy.swift */,
-				2613A3E31DB8BBBF000F27D3 /* Mapping+Helper.swift */,
-				2613A3E41DB8BBBF000F27D3 /* Reply.swift */,
-				2613A3E51DB8BBBF000F27D3 /* RxSwift+Pipe.swift */,
-				2613A3E61DB8BBBF000F27D3 /* RxSwift+Then.swift */,
-			);
-			path = Auto;
-			sourceTree = "<group>";
-		};
 		26246E121D810A5A00F44CDA = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +86,6 @@
 		26246E1D1D810A5A00F44CDA /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				2613A3E01DB8BBBF000F27D3 /* Auto */,
 				2636D9C01D83FA6100331745 /* unimportant */,
 				26246E201D810A5A00F44CDA /* ViewController.swift */,
 				2636D97F1D83144A00331745 /* FinalViewModel.swift */,
@@ -228,6 +204,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxExtensions.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAutomaton.framework",
 			);
 			outputPaths = (
 			);
@@ -243,20 +220,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				269268E11D869D79000F2263 /* StopwatchViewModelProtocol.swift in Sources */,
-				26B98B881DB8C40F00C11092 /* FlattenStrategy.swift in Sources */,
 				2636D9801D83144A00331745 /* FinalViewModel.swift in Sources */,
-				26B98B8B1DB8C40F00C11092 /* RxSwift+Pipe.swift in Sources */,
 				26246E211D810A5A00F44CDA /* ViewController.swift in Sources */,
 				26637E4E1D9D80500060C3C3 /* Cell+Rx.swift in Sources */,
-				26B98B891DB8C40F00C11092 /* Mapping+Helper.swift in Sources */,
-				26B98B8A1DB8C40F00C11092 /* Reply.swift in Sources */,
 				269268E31D869DD7000F2263 /* Tool.swift in Sources */,
 				2636D9841D83AD6900331745 /* Button+Style.swift in Sources */,
-				26B98B871DB8C40F00C11092 /* Automaton.swift in Sources */,
 				269268E51D869E43000F2263 /* StopwatchTypeListViewController.swift in Sources */,
 				269268DD1D869D25000F2263 /* BasicViewModel.swift in Sources */,
 				269268DF1D869D5B000F2263 /* TimingViewModel.swift in Sources */,
-				26B98B8C1DB8C40F00C11092 /* RxSwift+Then.swift in Sources */,
 				26246E1F1D810A5A00F44CDA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

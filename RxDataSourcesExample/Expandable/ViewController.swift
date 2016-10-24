@@ -12,9 +12,9 @@ import RxCocoa
 import RxDataSources
 import RxExtensions
 
-class ViewController: UIViewController {
+private typealias ProfileSectionModel = AnimatableSectionModel<ProfileSectionType, ProfileItem>
 
-    private typealias ProfileSectionModel = AnimatableSectionModel<ProfileSectionType, ProfileItem>
+class ViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 

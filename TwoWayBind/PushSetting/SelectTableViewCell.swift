@@ -43,7 +43,7 @@ extension Reactive where Base: SelectTableViewCell {
             cell?._isSelectedChanged = observer.onNext
             return Disposables.create()
         }
-        let sink = base.selectButton.rx.selected
+        let sink = base.selectButton.rx.isSelected
         return ControlProperty(values: source, valueSink: sink)
     }
 }
