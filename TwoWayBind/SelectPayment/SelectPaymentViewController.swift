@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import RxExtensions
 
 struct SelectPayment: Hashable, Equatable, IdentifiableType {
     let select: Variable<Payment>
@@ -39,7 +40,6 @@ class SelectPaymentViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
     private let dataSource = RxTableViewSectionedReloadDataSource<PaymentSectionModel>()
-    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class SelectPaymentViewController: UIViewController {
         tableView
             .rx.modelSelected(Payment.self)
             .bindTo(selectPayment.select)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
         let paymentSection = PaymentSectionModel(
             model: selectPayment,
@@ -68,18 +68,18 @@ class SelectPaymentViewController: UIViewController {
 
         Observable.just([paymentSection])
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
         tableView.rx.itemSelected
             .map { ($0, animated: true) }
             .subscribe(onNext: tableView.deselectRow)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
         do {
             selectPayment.select.asObservable()
                 .map { $0.name }
                 .bindTo(self.rx.title)
-                .addDisposableTo(disposeBag)
+                .addDisposableTo(rx.disposeBag)
         }
     }
 

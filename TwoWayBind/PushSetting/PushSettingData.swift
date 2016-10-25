@@ -12,23 +12,20 @@ import RxCocoa
 
 let pushSettingData: [PushSettingSectionModel] = {
 
-    let consumption = PushSectionModel(category: "消费相关", isSelectedAll: Variable(true))
-
     let consumptionItems = [
-        PushItemModel(pushType: PushType.confirm, isSelected: Variable(true)),
-        PushItemModel(pushType: PushType.willExpire, isSelected: Variable(true)),
-        PushItemModel(pushType: PushType.expired, isSelected: Variable(true)),
-        PushItemModel(pushType: PushType.refunded, isSelected: Variable(true)),
+        PushItemModel(pushType: .confirm, select: Variable(true)),
+        PushItemModel(pushType: .willExpire, select: Variable(true)),
+        PushItemModel(pushType: .expired, select: Variable(true)),
+        PushItemModel(pushType: .refunded, select: Variable(true)),
     ]
-    let consumptionSection = PushSettingSectionModel(model: consumption, items: consumptionItems)
+    let consumptionSection = PushSettingSectionModel(model: "消费相关", items: consumptionItems)
 
-    let other = PushSectionModel(category: "其他", isSelectedAll: Variable(true))
     let otherItems = [
-        PushItemModel(pushType: PushType.getGift, isSelected: Variable(true)),
-        PushItemModel(pushType: PushType.couponInfo, isSelected: Variable(true)),
-        PushItemModel(pushType: PushType.favorite, isSelected: Variable(true)),
+        PushItemModel(pushType: .getGift, select: Variable(true)),
+        PushItemModel(pushType: .couponInfo, select: Variable(true)),
+        PushItemModel(pushType: .favorite, select: Variable(true)),
     ]
-    let otherSection = PushSettingSectionModel(model: other, items: otherItems)
+    let otherSection = PushSettingSectionModel(model: "其他", items: otherItems)
 
     return [consumptionSection, otherSection]
 }()

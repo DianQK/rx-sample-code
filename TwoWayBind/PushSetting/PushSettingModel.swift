@@ -42,7 +42,7 @@ enum PushType {
 
 struct PushItemModel {
     let pushType: PushType
-    let isSelected: Variable<Bool>
+    let select: Variable<Bool>
 }
 
 extension PushItemModel: Hashable, Equatable, IdentifiableType {
@@ -53,27 +53,8 @@ extension PushItemModel: Hashable, Equatable, IdentifiableType {
     var identity: Int {
         return pushType.hashValue
     }
-}
 
-func ==(lhs: PushItemModel, rhs: PushItemModel) -> Bool {
-    return lhs.pushType == rhs.pushType
-}
-
-struct PushSectionModel {
-    let category: String
-    let isSelectedAll: Variable<Bool>
-}
-
-extension PushSectionModel: Hashable, Equatable, IdentifiableType {
-    var hashValue: Int {
-        return category.hashValue
+    static func ==(lhs: PushItemModel, rhs: PushItemModel) -> Bool {
+        return lhs.pushType == rhs.pushType
     }
-
-    var identity: Int {
-        return category.hashValue
-    }
-}
-
-func ==(lhs: PushSectionModel, rhs: PushSectionModel) -> Bool {
-    return lhs.category == rhs.category
 }

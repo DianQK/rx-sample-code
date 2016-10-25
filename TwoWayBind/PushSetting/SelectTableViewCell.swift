@@ -22,28 +22,12 @@ class SelectTableViewCell: UITableViewCell {
     }
 
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet fileprivate weak var selectButton: UIButton! {
-        didSet {
-            selectButton.addTarget(self, action: #selector(SelectTableViewCell.selectButtonTap), for: .touchUpInside)
-        }
-    }
-
-    fileprivate var _isSelectedChanged: ((Bool) -> Void)?
-
-    private dynamic func selectButtonTap() {
-        selectButton.isSelected = !selectButton.isSelected
-        _isSelectedChanged?(selectButton.isSelected)
-    }
+    @IBOutlet fileprivate weak var selectButton: UIButton!
 
 }
 
 extension Reactive where Base: SelectTableViewCell {
-    var isSelected: ControlProperty<Bool> {
-        let source = Observable<Bool>.create { [weak cell = self.base](observer) in
-            cell?._isSelectedChanged = observer.onNext
-            return Disposables.create()
-        }
-        let sink = base.selectButton.rx.isSelected
-        return ControlProperty(values: source, valueSink: sink)
+    var select: ControlProperty<Bool> {
+        return base.selectButton.rx.select
     }
 }

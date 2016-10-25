@@ -8,19 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		26615E9C1D6CC2AF004536D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615E9B1D6CC2AF004536D3 /* AppDelegate.swift */; };
-		26615E9E1D6CC2AF004536D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615E9D1D6CC2AF004536D3 /* ViewController.swift */; };
 		26615EA11D6CC2AF004536D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26615E9F1D6CC2AF004536D3 /* Main.storyboard */; };
 		26615EA31D6CC2AF004536D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26615EA21D6CC2AF004536D3 /* Assets.xcassets */; };
 		26615EA61D6CC2AF004536D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26615EA41D6CC2AF004536D3 /* LaunchScreen.storyboard */; };
-		26615EB41D6CC2D5004536D3 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EAE1D6CC2D5004536D3 /* RxDataSources.framework */; };
-		26615EB51D6CC2D5004536D3 /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EAE1D6CC2D5004536D3 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26615EB61D6CC2D5004536D3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EAF1D6CC2D5004536D3 /* RxSwift.framework */; };
-		26615EB71D6CC2D5004536D3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EAF1D6CC2D5004536D3 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26615EB81D6CC2D5004536D3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EB01D6CC2D5004536D3 /* RxCocoa.framework */; };
-		26615EB91D6CC2D5004536D3 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EB01D6CC2D5004536D3 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26615EBA1D6CC2D5004536D3 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EB11D6CC2D5004536D3 /* Rswift.framework */; };
-		26615EBB1D6CC2D5004536D3 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26615EB11D6CC2D5004536D3 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26615ECC1D6CC31B004536D3 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615EBE1D6CC31B004536D3 /* Operators.swift */; };
 		26615ECE1D6CC31B004536D3 /* PushSettingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615EC11D6CC31B004536D3 /* PushSettingData.swift */; };
 		26615ECF1D6CC31B004536D3 /* PushSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615EC21D6CC31B004536D3 /* PushSettingModel.swift */; };
 		26615ED01D6CC31B004536D3 /* PushSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615EC31D6CC31B004536D3 /* PushSettingViewController.swift */; };
@@ -31,42 +21,21 @@
 		26615ED51D6CC31B004536D3 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615ECA1D6CC31B004536D3 /* CartViewController.swift */; };
 		26615ED61D6CC31B004536D3 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615ECB1D6CC31B004536D3 /* ProductTableViewCell.swift */; };
 		26615ED91D6CC454004536D3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26615ED81D6CC454004536D3 /* R.generated.swift */; };
-		26EEE1FA1D70288000A317C7 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EEE1F91D70288000A317C7 /* SnapKit.framework */; };
-		26EEE1FB1D70288000A317C7 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26EEE1F91D70288000A317C7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		26EEE1FD1D702BC900A317C7 /* Cell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEE1FC1D702BC900A317C7 /* Cell+Rx.swift */; };
+		26CCF58E1DBF42DF0023586B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF5891DBF42DF0023586B /* RxSwift.framework */; };
+		26CCF58F1DBF42DF0023586B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF58A1DBF42DF0023586B /* RxCocoa.framework */; };
+		26CCF5901DBF42DF0023586B /* RxExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF58B1DBF42DF0023586B /* RxExtensions.framework */; };
+		26CCF5911DBF42DF0023586B /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF58C1DBF42DF0023586B /* RxDataSources.framework */; };
+		26CCF5921DBF42DF0023586B /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF58D1DBF42DF0023586B /* Rswift.framework */; };
+		26CCF5951DBF43850023586B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CCF5941DBF43850023586B /* SnapKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		26615EBC1D6CC2D5004536D3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				26615EB91D6CC2D5004536D3 /* RxCocoa.framework in Embed Frameworks */,
-				26615EB51D6CC2D5004536D3 /* RxDataSources.framework in Embed Frameworks */,
-				26615EBB1D6CC2D5004536D3 /* Rswift.framework in Embed Frameworks */,
-				26615EB71D6CC2D5004536D3 /* RxSwift.framework in Embed Frameworks */,
-				26EEE1FB1D70288000A317C7 /* SnapKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26615E981D6CC2AF004536D3 /* TwoWayBind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoWayBind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26615E9B1D6CC2AF004536D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26615E9D1D6CC2AF004536D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26615EA01D6CC2AF004536D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26615EA21D6CC2AF004536D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26615EA51D6CC2AF004536D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26615EA71D6CC2AF004536D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26615EAE1D6CC2D5004536D3 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
-		26615EAF1D6CC2D5004536D3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		26615EB01D6CC2D5004536D3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		26615EB11D6CC2D5004536D3 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
-		26615EBE1D6CC31B004536D3 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		26615EC11D6CC31B004536D3 /* PushSettingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushSettingData.swift; sourceTree = "<group>"; };
 		26615EC21D6CC31B004536D3 /* PushSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushSettingModel.swift; sourceTree = "<group>"; };
 		26615EC31D6CC31B004536D3 /* PushSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushSettingViewController.swift; sourceTree = "<group>"; };
@@ -77,8 +46,12 @@
 		26615ECA1D6CC31B004536D3 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		26615ECB1D6CC31B004536D3 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		26615ED81D6CC454004536D3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		26EEE1F91D70288000A317C7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		26EEE1FC1D702BC900A317C7 /* Cell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cell+Rx.swift"; sourceTree = "<group>"; };
+		26CCF5891DBF42DF0023586B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		26CCF58A1DBF42DF0023586B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		26CCF58B1DBF42DF0023586B /* RxExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxExtensions.framework; path = Carthage/Build/iOS/RxExtensions.framework; sourceTree = "<group>"; };
+		26CCF58C1DBF42DF0023586B /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		26CCF58D1DBF42DF0023586B /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		26CCF5941DBF43850023586B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26615EB81D6CC2D5004536D3 /* RxCocoa.framework in Frameworks */,
-				26615EB41D6CC2D5004536D3 /* RxDataSources.framework in Frameworks */,
-				26615EBA1D6CC2D5004536D3 /* Rswift.framework in Frameworks */,
-				26615EB61D6CC2D5004536D3 /* RxSwift.framework in Frameworks */,
-				26EEE1FA1D70288000A317C7 /* SnapKit.framework in Frameworks */,
+				26CCF5951DBF43850023586B /* SnapKit.framework in Frameworks */,
+				26CCF58E1DBF42DF0023586B /* RxSwift.framework in Frameworks */,
+				26CCF58F1DBF42DF0023586B /* RxCocoa.framework in Frameworks */,
+				26CCF5901DBF42DF0023586B /* RxExtensions.framework in Frameworks */,
+				26CCF5911DBF42DF0023586B /* RxDataSources.framework in Frameworks */,
+				26CCF5921DBF42DF0023586B /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,13 +74,9 @@
 		26615E8F1D6CC2AF004536D3 = {
 			isa = PBXGroup;
 			children = (
-				26EEE1F91D70288000A317C7 /* SnapKit.framework */,
-				26615EAE1D6CC2D5004536D3 /* RxDataSources.framework */,
-				26615EAF1D6CC2D5004536D3 /* RxSwift.framework */,
-				26615EB01D6CC2D5004536D3 /* RxCocoa.framework */,
-				26615EB11D6CC2D5004536D3 /* Rswift.framework */,
 				26615E9A1D6CC2AF004536D3 /* TwoWayBind */,
 				26615E991D6CC2AF004536D3 /* Products */,
+				26CCF5881DBF42DF0023586B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,27 +92,16 @@
 			isa = PBXGroup;
 			children = (
 				26615ED81D6CC454004536D3 /* R.generated.swift */,
-				26615EBD1D6CC31B004536D3 /* Public */,
 				26615EC01D6CC31B004536D3 /* PushSetting */,
 				26615EC61D6CC31B004536D3 /* SelectPayment */,
 				26615EC91D6CC31B004536D3 /* Cart */,
 				26615E9B1D6CC2AF004536D3 /* AppDelegate.swift */,
-				26615E9D1D6CC2AF004536D3 /* ViewController.swift */,
 				26615E9F1D6CC2AF004536D3 /* Main.storyboard */,
 				26615EA21D6CC2AF004536D3 /* Assets.xcassets */,
 				26615EA41D6CC2AF004536D3 /* LaunchScreen.storyboard */,
 				26615EA71D6CC2AF004536D3 /* Info.plist */,
 			);
 			path = TwoWayBind;
-			sourceTree = "<group>";
-		};
-		26615EBD1D6CC31B004536D3 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				26EEE1FC1D702BC900A317C7 /* Cell+Rx.swift */,
-				26615EBE1D6CC31B004536D3 /* Operators.swift */,
-			);
-			path = Public;
 			sourceTree = "<group>";
 		};
 		26615EC01D6CC31B004536D3 /* PushSetting */ = {
@@ -175,6 +134,19 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		26CCF5881DBF42DF0023586B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26CCF5941DBF43850023586B /* SnapKit.framework */,
+				26CCF5891DBF42DF0023586B /* RxSwift.framework */,
+				26CCF58A1DBF42DF0023586B /* RxCocoa.framework */,
+				26CCF58B1DBF42DF0023586B /* RxExtensions.framework */,
+				26CCF58C1DBF42DF0023586B /* RxDataSources.framework */,
+				26CCF58D1DBF42DF0023586B /* Rswift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,7 +157,7 @@
 				26615E941D6CC2AF004536D3 /* Sources */,
 				26615E951D6CC2AF004536D3 /* Frameworks */,
 				26615E961D6CC2AF004536D3 /* Resources */,
-				26615EBC1D6CC2D5004536D3 /* Embed Frameworks */,
+				26CCF5931DBF43100023586B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -244,6 +216,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26CCF5931DBF43100023586B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxExtensions.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Rswift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		26615E941D6CC2AF004536D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -252,16 +246,13 @@
 				26615ED31D6CC31B004536D3 /* PaymentTableViewCell.swift in Sources */,
 				26615ED91D6CC454004536D3 /* R.generated.swift in Sources */,
 				26615ED41D6CC31B004536D3 /* SelectPaymentViewController.swift in Sources */,
-				26615E9E1D6CC2AF004536D3 /* ViewController.swift in Sources */,
 				26615ED51D6CC31B004536D3 /* CartViewController.swift in Sources */,
 				26615ECF1D6CC31B004536D3 /* PushSettingModel.swift in Sources */,
 				26615ED01D6CC31B004536D3 /* PushSettingViewController.swift in Sources */,
 				26615ED61D6CC31B004536D3 /* ProductTableViewCell.swift in Sources */,
 				26615E9C1D6CC2AF004536D3 /* AppDelegate.swift in Sources */,
-				26615ECC1D6CC31B004536D3 /* Operators.swift in Sources */,
 				26615ECE1D6CC31B004536D3 /* PushSettingData.swift in Sources */,
 				26615ED11D6CC31B004536D3 /* SelectTableViewCell.swift in Sources */,
-				26EEE1FD1D702BC900A317C7 /* Cell+Rx.swift in Sources */,
 				26615ED21D6CC31B004536D3 /* SelectTableViewHeaderFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

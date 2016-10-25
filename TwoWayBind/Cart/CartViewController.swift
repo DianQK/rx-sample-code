@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import RxExtensions
 
 struct ProductInfo {
     let id: Int64

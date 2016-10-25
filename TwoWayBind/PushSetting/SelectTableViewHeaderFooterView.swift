@@ -24,27 +24,8 @@ class SelectTableViewHeaderFooterView: UITableViewHeaderFooterView {
         }
     }
 
-    var isSelected: AnyObserver<Bool> {
-        return UIBindingObserver(UIElement: selectSwitch) { selectSwitch, isSelected in
-            selectSwitch.setOn(isSelected, animated: true)
-        }
-            .asObserver()
-    }
-
-    var selectSwitchChangedAction: ((Bool) -> Void)?
-
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-
-    private lazy var selectSwitch: UISwitch = {
-        let selectSwitch = UISwitch()
-        selectSwitch.addTarget(self, action: #selector(SelectTableViewHeaderFooterView.selectSwitchChanged), for: .valueChanged)
-        return selectSwitch
-    }()
-
-    private(set) var reusableDisposeBag = DisposeBag()
+    fileprivate lazy var selectSwitch = UISwitch()
+    private lazy var nameLabel = UILabel()
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -61,16 +42,26 @@ class SelectTableViewHeaderFooterView: UITableViewHeaderFooterView {
         }
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        reusableDisposeBag = DisposeBag()
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private dynamic func selectSwitchChanged() {
-        selectSwitchChangedAction?(selectSwitch.isOn)
+}
+
+extension Reactive where Base: UISwitch {
+    public var isOn: ControlProperty<Bool> {
+        let source = self.controlEvent(.valueChanged)
+            .map { [unowned uiSwitch = self.base] in uiSwitch.isOn }
+        let sink = UIBindingObserver<UISwitch, Bool>(UIElement: self.base) { uiSwitch, isOn in
+            guard uiSwitch.isOn != isOn else { return }
+            uiSwitch.setOn(isOn, animated: true)
+        }
+        return ControlProperty(values: source, valueSink: sink)
+    }
+}
+
+extension Reactive where Base: SelectTableViewHeaderFooterView {
+    var isSelected: ControlProperty<Bool> {
+        return base.selectSwitch.rx.isOn
     }
 }
