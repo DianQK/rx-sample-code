@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262B74AE1DC8D80B0000253E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B74AD1DC8D80B0000253E /* CollectionViewController.swift */; };
 		2643EF681DA49B9400CC0839 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EF671DA49B9400CC0839 /* R.generated.swift */; };
 		2643EF6E1DA52BD300CC0839 /* RefreshTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EF6D1DA52BD300CC0839 /* RefreshTableViewController.swift */; };
 		2643EF7A1DA6310400CC0839 /* ChangeSwitchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643EF791DA6310400CC0839 /* ChangeSwitchTableViewController.swift */; };
@@ -29,6 +30,7 @@
 		26AAD57A1DA3FD29001F0482 /* CellButtonClickTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAD5791DA3FD29001F0482 /* CellButtonClickTableViewController.swift */; };
 		26AAD57C1DA41A4B001F0482 /* MultipleCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAD57B1DA41A4B001F0482 /* MultipleCellTableViewController.swift */; };
 		26C4E3921DBDAF2E00D2F0D8 /* Expandable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26C4E3901DBDAF2E00D2F0D8 /* Expandable.storyboard */; };
+		26C5ED261DC9D8B9007D1993 /* AutomaticCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C5ED251DC9D8B9007D1993 /* AutomaticCollectionViewFlowLayout.swift */; };
 		26DF41A61DA28A4C00E94741 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */; };
 		26DF41A81DA2910400E94741 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A71DA2910400E94741 /* SectionTableViewController.swift */; };
 		26DF41AA1DA2A56100E94741 /* CustomSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */; };
@@ -44,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262B74AD1DC8D80B0000253E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2643EF671DA49B9400CC0839 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		2643EF6D1DA52BD300CC0839 /* RefreshTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTableViewController.swift; sourceTree = "<group>"; };
 		2643EF791DA6310400CC0839 /* ChangeSwitchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeSwitchTableViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		26AAD5791DA3FD29001F0482 /* CellButtonClickTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellButtonClickTableViewController.swift; sourceTree = "<group>"; };
 		26AAD57B1DA41A4B001F0482 /* MultipleCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleCellTableViewController.swift; sourceTree = "<group>"; };
 		26C4E3911DBDAF2E00D2F0D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Expandable.storyboard; sourceTree = "<group>"; };
+		26C5ED251DC9D8B9007D1993 /* AutomaticCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		26DF41A51DA28A4C00E94741 /* TipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
 		26DF41A71DA2910400E94741 /* SectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		26DF41A91DA2A56100E94741 /* CustomSectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionTableViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				2643EF6D1DA52BD300CC0839 /* RefreshTableViewController.swift */,
 				2643EF791DA6310400CC0839 /* ChangeSwitchTableViewController.swift */,
 				2643EF801DA6734300CC0839 /* TodoTableViewController.swift */,
+				262B74AD1DC8D80B0000253E /* CollectionViewController.swift */,
+				26C5ED251DC9D8B9007D1993 /* AutomaticCollectionViewFlowLayout.swift */,
 			);
 			path = RxDataSourcesExample;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262B74AE1DC8D80B0000253E /* CollectionViewController.swift in Sources */,
 				26E732F01DA7968600220214 /* ViewController.swift in Sources */,
 				26AAD5761DA3DF29001F0482 /* TapCellTableViewController.swift in Sources */,
 				26DF41AA1DA2A56100E94741 /* CustomSectionTableViewController.swift in Sources */,
@@ -318,6 +325,7 @@
 				26E732EA1DA7968600220214 /* Config.swift in Sources */,
 				26E732ED1DA7968600220214 /* Profile.swift in Sources */,
 				26E732E51DA7968600220214 /* Cell+Rx.swift in Sources */,
+				26C5ED261DC9D8B9007D1993 /* AutomaticCollectionViewFlowLayout.swift in Sources */,
 				2643EF681DA49B9400CC0839 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

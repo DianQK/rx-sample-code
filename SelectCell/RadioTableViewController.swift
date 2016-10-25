@@ -53,4 +53,8 @@ class RadioTableViewController: UITableViewController {
         }
     }
 
+    deinit {
+        print("deinit \(self)")
+    }
+
 }

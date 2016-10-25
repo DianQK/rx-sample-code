@@ -70,10 +70,7 @@ class SelectPaymentViewController: UIViewController {
             .bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(rx.disposeBag)
 
-        tableView.rx.itemSelected
-            .map { ($0, animated: true) }
-            .subscribe(onNext: tableView.deselectRow)
-            .addDisposableTo(rx.disposeBag)
+        tableView.rx.enableAutoDeselect().addDisposableTo(rx.disposeBag)
 
         do {
             selectPayment.select.asObservable()

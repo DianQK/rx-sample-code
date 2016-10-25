@@ -19,7 +19,7 @@ extension Reactive where Base: SliderCell {
     var value: ControlProperty<Int> {
         let observer = UIBindingObserver<UISlider, Int>(UIElement: base.slider) { (slider, value) in
             slider.value = Float(value)
-        }.asObserver()
+            }.asObserver()
         return ControlProperty(values: base.slider.rx.value.map(Int.init), valueSink: observer)
     }
 }

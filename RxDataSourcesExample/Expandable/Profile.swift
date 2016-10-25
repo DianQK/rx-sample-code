@@ -71,31 +71,35 @@ struct ProfileItem: IDHashable, IdentifiableType {
                 let firstName = Variable(fullname[0] ?? "")
                 let lastName = Variable(fullname[1] ?? "")
 
-                let firstSubItem = ProfileItem(type: .input(.textField(text: firstName, placeholder: "Firstname")))
-                let lastSubItem = ProfileItem(type: .input(.textField(text: lastName, placeholder: "Lastname")))
-                subItems = [firstSubItem, lastSubItem]
+let firstSubItem = ProfileItem(type: .input(.textField(text: firstName, placeholder: "Firstname")))
+let lastSubItem = ProfileItem(type: .input(.textField(text: lastName, placeholder: "Lastname")))
+subItems = [firstSubItem, lastSubItem]
 
-                Observable.combineLatest(firstName.asObservable(), lastName.asObservable()) { $0 + " " + $1 }
-                    .bindTo(title)
-                    .addDisposableTo(disposeBag)
+Observable
+    .combineLatest(
+        firstName.asObservable(),
+        lastName.asObservable()
+    ) { $0 + " " + $1 }
+    .bindTo(title)
+    .addDisposableTo(disposeBag)
                 id = "fullname"
             case .dateOfBirth:
                 let date = Variable(Date())
                 let subItem = ProfileItem(type: .input(.datePick(date)))
                 subItems = [subItem]
-                date.asObservable()
-                    .map(DateFormatter().config.longStyle.string)
-                    .bindTo(title)
+date.asObservable()
+    .map(DateFormatter().config.longStyle.string)
+    .bindTo(title)
                     .addDisposableTo(disposeBag)
                 id = "dateOfBirth"
             case .maritalStatus:
                 let isMarried = Variable(true)
                 let subItem = ProfileItem(type: .input(.status(title: "Off = Single, On = Married", isOn: isMarried)))
                 subItems = [subItem]
-                isMarried.asObservable()
-                    .skip(1)
-                    .map { $0 ? "Married" : "Single" }
-                    .bindTo(title)
+isMarried.asObservable()
+    .skip(1)
+    .map { $0 ? "Married" : "Single" }
+    .bindTo(title)
                     .addDisposableTo(disposeBag)
                 id = "maritalStatus"
             case .favoriteColor:

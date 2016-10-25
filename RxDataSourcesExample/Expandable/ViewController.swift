@@ -12,6 +12,33 @@ import RxCocoa
 import RxDataSources
 import RxExtensions
 
+infix operator => : DefaultPrecedence
+
+public func =><T : Equatable>(lhs: RxSwift.Variable<T>, rhs: RxSwift.Variable<T>) -> Disposable {
+    return lhs.asObservable().bindTo(rhs)
+}
+
+public func =><T>(property: RxCocoa.ControlProperty<T>, variable: RxSwift.Variable<T>) -> Disposable {
+    return property.bindTo(variable)
+}
+
+public func =><O : ObserverType, E>(variable: RxSwift.Variable<E>, observer: O) -> Disposable where O.E == Optional<E> {
+    return variable.asObservable().bindTo(observer)
+}
+
+public func =><O : ObserverType, E, OB: ObservableType>(observable: OB, observer: O) -> Disposable where O.E == Optional<E>, OB.E == E {
+    return observable.asObservable().bindTo(observer)
+}
+
+public func =><T>(property: RxCocoa.ControlProperty<T>, variable: RxSwift.Variable<T?>) -> Disposable {
+    return property.map(Optional.init).bindTo(variable)
+//    return property.bindTo(variable)
+}
+
+public func =><T>(variable: RxSwift.Variable<T>, property: RxCocoa.ControlProperty<T>) -> Disposable {
+    return variable.asObservable().bindTo(property)
+}
+
 private typealias ProfileSectionModel = AnimatableSectionModel<ProfileSectionType, ProfileItem>
 
 class ViewController: UIViewController {
@@ -61,9 +88,9 @@ class ViewController: UIViewController {
                 case let .display(title, type, _):
                     let infoCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.normalCell, for: indexPath)!
                     infoCell.detailTextLabel?.text = type.subTitle
-                    title.asObservable()
-                        .bindTo(infoCell.textLabel?.rx.text)?
-                        .addDisposableTo(infoCell.rx.prepareForReuseBag)
+                    if let textLabel = infoCell.textLabel {
+                        (title => textLabel.rx.text).addDisposableTo(infoCell.rx.prepareForReuseBag)
+                    }
                     return infoCell
                 case let .input(input):
                     switch input {
@@ -80,11 +107,11 @@ class ViewController: UIViewController {
                         switchCell.title = title
                         (switchCell.rx.isOn <-> isOn).addDisposableTo(switchCell.rx.prepareForReuseBag)
                         return switchCell
-                    case let .textField(text, placeholder):
-                        let textFieldCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.textFieldCell, for: indexPath)!
-                        textFieldCell.placeholder = placeholder
-                        (textFieldCell.rx.text <-> text).addDisposableTo(textFieldCell.rx.prepareForReuseBag)
-                        return textFieldCell
+case let .textField(text, placeholder):
+    let textFieldCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.textFieldCell, for: indexPath)!
+    textFieldCell.placeholder = placeholder
+    (textFieldCell.rx.text <-> text).addDisposableTo(textFieldCell.rx.prepareForReuseBag)
+    return textFieldCell
                     case let .title(title, _):
                         let titleCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.normalItemCell, for: indexPath)!
                         titleCell.textLabel?.text = title
@@ -115,9 +142,7 @@ class ViewController: UIViewController {
                 })
                 .addDisposableTo(rx.disposeBag)
 
-            tableView.rx.itemSelected
-                .map { (at: $0, animted: true) }
-                .subscribe(onNext: tableView.deselectRow)
+            tableView.rx.enableAutoDeselect()
                 .addDisposableTo(rx.disposeBag)
         }
 

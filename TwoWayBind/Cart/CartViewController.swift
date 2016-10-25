@@ -26,13 +26,15 @@ extension ProductInfo: Hashable, Equatable, IdentifiableType {
     var identity: Int64 {
         return id
     }
+
+    static func ==(lhs: ProductInfo, rhs: ProductInfo) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 typealias ProductSectionModel = AnimatableSectionModel<String, ProductInfo>
 
-func ==(lhs: ProductInfo, rhs: ProductInfo) -> Bool {
-    return lhs.id == rhs.id
-}
+
 
 class CartViewController: UIViewController {
 
@@ -41,7 +43,6 @@ class CartViewController: UIViewController {
     @IBOutlet private weak var purchaseButton: UIButton!
 
     private let dataSource = RxTableViewSectionedReloadDataSource<ProductSectionModel>()
-    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ class CartViewController: UIViewController {
 
         sectionInfo
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
         let totalPrice = sectionInfo
             .map { $0.flatMap { $0.items } }
@@ -75,17 +76,14 @@ class CartViewController: UIViewController {
         totalPrice
             .map { "总价：\($0) 元" }
             .bindTo(totalPriceLabel.rx.text)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
         totalPrice
             .map { $0 != 0 }
             .bindTo(purchaseButton.rx.isEnabled)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(rx.disposeBag)
 
-        tableView.rx.itemSelected
-            .map { ($0, animated: true) }
-            .subscribe(onNext: tableView.deselectRow)
-            .addDisposableTo(disposeBag)
+        tableView.rx.enableAutoDeselect().addDisposableTo(rx.disposeBag)
 
     }
 

@@ -26,14 +26,35 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `DianQK`.
     static let dianQK = ImageResource(bundle: _R.hostingBundle, name: "DianQK")
+    /// Image `btn_add`.
+    static let btn_add = ImageResource(bundle: _R.hostingBundle, name: "btn_add")
+    /// Image `btn_delete_press`.
+    static let btn_delete_press = ImageResource(bundle: _R.hostingBundle, name: "btn_delete_press")
+    /// Image `btn_delete`.
+    static let btn_delete = ImageResource(bundle: _R.hostingBundle, name: "btn_delete")
     
     /// `UIImage(named: "DianQK", bundle: ..., traitCollection: ...)`
     static func dianQK(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.dianQK, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "btn_add", bundle: ..., traitCollection: ...)`
+    static func btn_add(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.btn_add, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "btn_delete", bundle: ..., traitCollection: ...)`
+    static func btn_delete(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.btn_delete, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "btn_delete_press", bundle: ..., traitCollection: ...)`
+    static func btn_delete_press(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.btn_delete_press, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -52,7 +73,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 12 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 13 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `BasicCell`.
     static let basicCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "BasicCell")
@@ -62,6 +83,8 @@ struct R: Rswift.Validatable {
     static let datePickerCell: ReuseIdentifier<DatePickerCell> = ReuseIdentifier(identifier: "DatePickerCell")
     /// Reuse identifier `DetailTableViewCell`.
     static let detailTableViewCell: ReuseIdentifier<DetailTableViewCell> = ReuseIdentifier(identifier: "DetailTableViewCell")
+    /// Reuse identifier `IconCell`.
+    static let iconCell: ReuseIdentifier<IconCell> = ReuseIdentifier(identifier: "IconCell")
     /// Reuse identifier `ImageTableViewCell`.
     static let imageTableViewCell: ReuseIdentifier<ImageTableViewCell> = ReuseIdentifier(identifier: "ImageTableViewCell")
     /// Reuse identifier `InfoTableViewCell`.
@@ -165,6 +188,7 @@ struct _R: Rswift.Validatable {
       let cellIdentifierTableViewController = StoryboardViewControllerResource<CellIdentifierTableViewController>(identifier: "CellIdentifierTableViewController")
       let cellIdentifierViewController = StoryboardViewControllerResource<CellIdentifierViewController>(identifier: "CellIdentifierViewController")
       let changeSwitchTableViewController = StoryboardViewControllerResource<ChangeSwitchTableViewController>(identifier: "ChangeSwitchTableViewController")
+      let collectionViewController = StoryboardViewControllerResource<CollectionViewController>(identifier: "CollectionViewController")
       let customSectionTableViewController = StoryboardViewControllerResource<CustomSectionTableViewController>(identifier: "CustomSectionTableViewController")
       let multipleCellTableViewController = StoryboardViewControllerResource<MultipleCellTableViewController>(identifier: "MultipleCellTableViewController")
       let name = "Main"
@@ -187,6 +211,10 @@ struct _R: Rswift.Validatable {
       
       func changeSwitchTableViewController(_: Void = ()) -> ChangeSwitchTableViewController? {
         return UIStoryboard(resource: self).instantiateViewController(withResource: changeSwitchTableViewController)
+      }
+      
+      func collectionViewController(_: Void = ()) -> CollectionViewController? {
+        return UIStoryboard(resource: self).instantiateViewController(withResource: collectionViewController)
       }
       
       func customSectionTableViewController(_: Void = ()) -> CustomSectionTableViewController? {
@@ -214,7 +242,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIImage(named: "btn_delete") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIImage(named: "btn_delete_press") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete_press' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIImage(named: "DianQK") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'DianQK' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().cellIdentifierTableViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'cellIdentifierTableViewController' could not be loaded from storyboard 'Main' as 'CellIdentifierTableViewController'.") }
+        if _R.storyboard.main().collectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'collectionViewController' could not be loaded from storyboard 'Main' as 'CollectionViewController'.") }
         if _R.storyboard.main().cellIdentifierViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'cellIdentifierViewController' could not be loaded from storyboard 'Main' as 'CellIdentifierViewController'.") }
         if _R.storyboard.main().sectionTableViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'sectionTableViewController' could not be loaded from storyboard 'Main' as 'SectionTableViewController'.") }
         if _R.storyboard.main().customSectionTableViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'customSectionTableViewController' could not be loaded from storyboard 'Main' as 'CustomSectionTableViewController'.") }
