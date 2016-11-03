@@ -15,20 +15,15 @@ class AutomaticCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
 
-        func checkItems(_ indexPaths: IndexPath?...) -> [IndexPath] {
-            return indexPaths.flatMap { $0 }
-        }
         _indexPathsToAnimate = updateItems
-            .flatMap { updateItem -> [IndexPath] in
+            .flatMap { updateItem -> IndexPath? in
                 switch updateItem.updateAction {
                 case .insert:
-                    return checkItems(updateItem.indexPathAfterUpdate)
+                    return updateItem.indexPathAfterUpdate
                 case .delete:
-                    return checkItems(updateItem.indexPathBeforeUpdate)
-//                case .move:
-//                    return checkItems(updateItem.indexPathBeforeUpdate, updateItem.indexPathAfterUpdate)
+                    return updateItem.indexPathBeforeUpdate
                 case .none, .reload, .move:
-                    return []
+                    return nil
                 }
         }
     }
@@ -45,7 +40,7 @@ class AutomaticCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
-        guard let attr = layoutAttributesForItem(at: itemIndexPath) else {
+        guard let attr = layoutAttributesForItem(at: itemIndexPath)?.copy() as? UICollectionViewLayoutAttributes else {
             return nil
         }
 

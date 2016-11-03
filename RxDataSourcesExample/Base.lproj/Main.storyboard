@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +43,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="1TW-Rc-Epk" kind="show" id="aPd-b6-IxX"/>
+                                            <segue destination="K7c-F8-zBw" kind="show" id="vws-HV-ixs"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="yVE-st-moy" style="IBUITableViewCellStyleDefault" id="fvF-Jn-Tl0">
@@ -336,106 +335,13 @@
             </objects>
             <point key="canvasLocation" x="1423" y="-344"/>
         </scene>
-        <!--Title-->
-        <scene sceneID="fgO-RP-QSV">
+        <!--Collection-->
+        <scene sceneID="V7g-gu-JQ3">
             <objects>
-                <viewController storyboardIdentifier="CollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="1TW-Rc-Epk" customClass="CollectionViewController" customModule="RxDataSourcesExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kuG-qM-hOr"/>
-                        <viewControllerLayoutGuide type="bottom" id="FPA-k7-GYI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zsO-HX-T1g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qY9-EJ-FGe">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kYE-yG-p0d" customClass="AutomaticCollectionViewFlowLayout" customModule="RxDataSourcesExample" customModuleProvider="target">
-                                    <size key="itemSize" width="90" height="100"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="15" minY="20" maxX="15" maxY="20"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IconCell" id="L1Q-RY-KVu" customClass="IconCell" customModule="RxDataSourcesExample" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="20" width="90" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lB4-Ga-f32">
-                                                    <rect key="frame" x="0.0" y="10" width="90" height="80"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DianQK" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-Pq-qMB">
-                                                            <rect key="frame" x="15" y="0.0" width="60" height="60"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="60" id="F0N-10-yOg"/>
-                                                                <constraint firstAttribute="width" constant="60" id="FeJ-6W-WPu"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nf-jo-Ad4">
-                                                            <rect key="frame" x="40" y="65" width="10" height="15"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="15" id="PTo-Mn-KbE"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdq-OI-ukO">
-                                                    <rect key="frame" x="5" y="0.0" width="20" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="cb7-V8-JiJ"/>
-                                                        <constraint firstAttribute="width" constant="20" id="k4y-eI-n4u"/>
-                                                    </constraints>
-                                                    <state key="normal" image="btn_delete"/>
-                                                    <state key="highlighted" image="btn_delete_press"/>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="lB4-Ga-f32" secondAttribute="bottom" constant="10" id="1SU-jj-bUW"/>
-                                            <constraint firstItem="Xdq-OI-ukO" firstAttribute="centerX" secondItem="ghI-Pq-qMB" secondAttribute="leading" id="GwT-wW-NgH"/>
-                                            <constraint firstAttribute="trailing" secondItem="lB4-Ga-f32" secondAttribute="trailing" id="Ny8-5T-8YV"/>
-                                            <constraint firstItem="lB4-Ga-f32" firstAttribute="top" secondItem="L1Q-RY-KVu" secondAttribute="top" constant="10" id="PY9-vv-5Mj"/>
-                                            <constraint firstItem="lB4-Ga-f32" firstAttribute="leading" secondItem="L1Q-RY-KVu" secondAttribute="leading" id="Rg1-hw-UOt"/>
-                                            <constraint firstItem="Xdq-OI-ukO" firstAttribute="centerY" secondItem="ghI-Pq-qMB" secondAttribute="top" id="grJ-JC-nLj"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="deleteButton" destination="Xdq-OI-ukO" id="DhH-vy-P65"/>
-                                            <outlet property="iconImageView" destination="ghI-Pq-qMB" id="625-LU-MXN"/>
-                                            <outlet property="titleLabel" destination="3Nf-jo-Ad4" id="Rkg-Bz-zqO"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qY9-EJ-FGe" firstAttribute="top" secondItem="kuG-qM-hOr" secondAttribute="bottom" id="0R8-nI-nDm"/>
-                            <constraint firstItem="FPA-k7-GYI" firstAttribute="top" secondItem="qY9-EJ-FGe" secondAttribute="bottom" id="b72-Ck-thu"/>
-                            <constraint firstAttribute="trailing" secondItem="qY9-EJ-FGe" secondAttribute="trailing" id="cIW-Qe-1Ry"/>
-                            <constraint firstItem="qY9-EJ-FGe" firstAttribute="leading" secondItem="zsO-HX-T1g" secondAttribute="leading" id="tWy-LM-M2W"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="jNL-ro-0df"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Title" id="J3M-pe-7Ww">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7p5-FC-4kw"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="actionBarButtonItem" destination="7p5-FC-4kw" id="Nlk-5j-oir"/>
-                        <outlet property="collectionView" destination="qY9-EJ-FGe" id="Yks-uG-jIy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oTL-6L-ih2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Collection" id="K7c-F8-zBw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVl-vO-HRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="-520.38980509745136"/>
+            <point key="canvasLocation" x="35" y="-308"/>
         </scene>
         <!--Cell Identifier View Controller-->
         <scene sceneID="s7d-6u-ESu">
@@ -1001,9 +907,4 @@
             <point key="canvasLocation" x="-236" y="1038"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="DianQK" width="100" height="100"/>
-        <image name="btn_delete" width="30" height="30"/>
-        <image name="btn_delete_press" width="30" height="30"/>
-    </resources>
 </document>

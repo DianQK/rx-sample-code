@@ -7,4 +7,3 @@ github "DianQK/RxAutomaton" ~> 0.2
 github "Alamofire/Alamofire" ~> 4.0
 github "jdg/MBProgressHUD" ~> 1.0
 github "SnapKit/SnapKit" ~> 3.1
-github "DianQK/GPUImage2" ~> 1.0

@@ -33,7 +33,6 @@ class TodoTableViewController: UITableViewController {
                 cell.textLabel?.text = element
                 return cell
             }
-
             dataSource.canEditRowAtIndexPath = { _ in true }
         }
 
