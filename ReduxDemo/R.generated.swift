@@ -135,18 +135,12 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UINavigationController
       
       let bundle = _R.hostingBundle
-      let collectionViewController = StoryboardViewControllerResource<CollectionViewController>(identifier: "CollectionViewController")
       let name = "Collection"
-      
-      func collectionViewController(_: Void = ()) -> CollectionViewController? {
-        return UIStoryboard(resource: self).instantiateViewController(withResource: collectionViewController)
-      }
       
       static func validate() throws {
         if UIImage(named: "btn_delete") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete' is used in storyboard 'Collection', but couldn't be loaded.") }
         if UIImage(named: "btn_delete_press") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete_press' is used in storyboard 'Collection', but couldn't be loaded.") }
         if UIImage(named: "DianQK") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'DianQK' is used in storyboard 'Collection', but couldn't be loaded.") }
-        if _R.storyboard.collection().collectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'collectionViewController' could not be loaded from storyboard 'Collection' as 'CollectionViewController'.") }
       }
       
       fileprivate init() {}

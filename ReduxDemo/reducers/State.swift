@@ -11,17 +11,17 @@ import RxSwift
 
 protocol HandleAction {
     associatedtype ActionType
-    mutating func handle(_ action: ActionType)
+    mutating func reducer(_ action: ActionType)
 }
 
 var state = State()
 
 struct State: HandleAction {
 
-    mutating func handle(_ action: Action) {
+    mutating func reducer(_ action: Action) {
         switch action {
         case let .collection(action):
-            collection.handle(action)
+            collection.reducer(action)
         }
     }
 

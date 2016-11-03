@@ -13,14 +13,31 @@ import RxExtensions
 
 class IconCell: ReactiveCollectionViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView! {
+    @IBOutlet private weak var iconImageView: UIImageView! {
         didSet {
             self.iconImageView.layer.cornerRadius = 8.0
             self.iconImageView.layer.masksToBounds = true
         }
     }
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var deleteButton: UIButton!
+
+    let item = ReplaySubject<IconItem>.create(bufferSize: 1)
+
+    override func commonInit() {
+        item.map { $0.logo }.bindTo(iconImageView.rx.image).addDisposableTo(disposeBag)
+        item.map { $0.title }.bindTo(titleLabel.rx.text).addDisposableTo(disposeBag)
+        Observable.combineLatest(item, state.collection
+            .isEditing.asObservable()) { $0.1 }
+            .bindTo(self.rx.isEditing)
+            .addDisposableTo(disposeBag)
+
+        deleteButton.rx.tap
+            .withLatestFrom(item.asObservable())
+            .map { Action.collection(CollectionAction.remove(item: $0)) }
+            .dispatch()
+            .addDisposableTo(disposeBag)
+    }
 
     func startWiggling() {
         guard contentView.layer.animation(forKey: "wiggle") == nil else { return }

@@ -23,10 +23,10 @@ struct CollectionState: HandleAction {
 
     typealias ActionType = CollectionAction
 
-    lazy var isEditing = Variable(false)
-    lazy var elements =  Variable<[IconItem]>((1...100).map { IconItem(id: $0, logo: R.image.dianQK()!, title: "\($0)") })
+    lazy private(set) var isEditing = Variable(false)
+    lazy private(set) var elements =  Variable<[IconItem]>((1...10).map { IconItem(id: $0, logo: R.image.dianQK()!, title: "\($0)") })
 
-    mutating func handle(_ action: CollectionAction) {
+    mutating func reducer(_ action: CollectionAction) {
         switch action {
         case let .add(item):
             elements.value.append(item)

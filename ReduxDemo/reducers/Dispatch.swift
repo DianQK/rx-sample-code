@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 let dispatch: (Action) -> Void = { action in
-    state.handle(action)
+    state.reducer(action)
 }
 
 protocol ActionValue {
@@ -27,7 +27,7 @@ extension ObservableType where E: ActionValue {
     func dispatch() -> Disposable {
         return asObservable()
             .subscribe(onNext: { action in
-                state.handle(action.value)
+                state.reducer(action.value)
             })
     }
 }

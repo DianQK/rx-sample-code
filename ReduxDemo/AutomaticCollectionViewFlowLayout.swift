@@ -37,7 +37,6 @@ class AutomaticCollectionViewFlowLayout: UICollectionViewFlowLayout {
         _indexPathsToAnimate = []
     }
 
-
     override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
         guard let attr = layoutAttributesForItem(at: itemIndexPath)?.copy() as? UICollectionViewLayoutAttributes else {

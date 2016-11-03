@@ -33,7 +33,7 @@
         <!--Collection-->
         <scene sceneID="3N4-ST-v8n">
             <objects>
-                <viewController storyboardIdentifier="CollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="kZh-Zb-0Ys" customClass="CollectionViewController" customModule="ReduxDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kZh-Zb-0Ys" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6xT-wn-v7c"/>
                         <viewControllerLayoutGuide type="bottom" id="fPo-WL-2zd"/>
@@ -42,7 +42,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ux2-VX-mlu">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ux2-VX-mlu" customClass="CollectionView" customModule="ReduxDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1Dy-Uy-0Qs" customClass="AutomaticCollectionViewFlowLayout" customModule="ReduxDemo" customModuleProvider="target">
@@ -120,12 +120,8 @@
                         <barButtonItem title="Item" id="eXw-T7-nlC"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Collection" id="R7B-vE-Ly7">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="T0H-87-Y9x"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="T0H-87-Y9x" customClass="CollectionBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="actionBarButtonItem" destination="T0H-87-Y9x" id="Nx0-Hi-Rip"/>
-                        <outlet property="collectionView" destination="ux2-VX-mlu" id="J1x-ug-AWf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vS-T6-6Co" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
