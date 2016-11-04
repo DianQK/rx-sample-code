@@ -30,7 +30,7 @@ class CollectionView: ReactiveCollectionView {
         }
 
         Observable
-            .combineLatest(state.collection.elements.asObservable(), state.collection.isEditing.asObservable()) { items, isEditing -> [IconItem] in
+            .combineLatest(_state.collection.elements.asObservable(), _state.collection.isEditing.asObservable()) { items, isEditing -> [IconItem] in
                 switch isEditing {
                 case true:
                     return items
@@ -64,16 +64,30 @@ class CollectionView: ReactiveCollectionView {
         self.addGestureRecognizer(long)
 
         self.rx.modelSelected(IconItem.self)
-            .subscribe(onNext: { item in
-                if item.id == 0 {
-                    let nextID = (state.collection.elements.value.max(by: { $0.id < $1.id })?.id ?? 0) + 1
-                    dispatch(Action.collection(.add(item: IconItem(id: nextID, logo: R.image.dianQK()!, title: "\(nextID)"))))
-                    return
+            .buffer(timeSpan: 0.4, count: 2, scheduler: MainScheduler.instance)
+            .asObservable()
+            .flatMap { items -> Observable<Action> in
+                if items.count == 2 && items[0] == items[1] {
+                    return Observable.just(Action.item(.modifyItem(items[0])))
                 }
-                guard !state.collection.isEditing.value else { return }
-                HUD.showMessage(item.title)
-            })
+                if items.count == 1 {
+                    let item = items[0]
+                    if item.id != 0 {
+                        if !_state.collection.isEditing.value {
+                            HUD.showMessage(item.title.value)
+                        }
+                        return Observable.empty()
+                    } else {
+                        let nextID = (_state.collection.elements.value.max(by: { $0.id < $1.id })?.id ?? 0) + 1
+                        let action = Action.collection(.add(item: IconItem(id: nextID, logo: R.image.dianQK()!, title: "\(nextID)")))
+                        return Observable.just(action)
+                    }
+                }
+                return Observable.empty()
+            }
+            .dispatch()
             .addDisposableTo(disposeBag)
+
     }
 
 }

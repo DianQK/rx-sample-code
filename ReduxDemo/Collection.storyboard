@@ -13,7 +13,7 @@
         <scene sceneID="Y5D-vY-ynr">
             <objects>
                 <navigationController id="Q7K-Ok-B6u" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sFy-vw-ods">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sFy-vw-ods">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,7 +62,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xdB-0A-1P9">
                                                     <rect key="frame" x="0.0" y="10" width="86" height="80"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DianQK" translatesAutoresizingMaskIntoConstraints="NO" id="iPc-i5-ZsZ">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DianQK" translatesAutoresizingMaskIntoConstraints="NO" id="iPc-i5-ZsZ">
                                                             <rect key="frame" x="13" y="0.0" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="Qgg-8G-XT9"/>
@@ -126,6 +126,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vS-T6-6Co" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-236" y="-520.38980509745136"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="hKh-fw-VzB">
+            <objects>
+                <viewController id="Iyp-2c-VL7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BqS-Sw-6x0"/>
+                        <viewControllerLayoutGuide type="bottom" id="BOj-XN-sM0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wWI-Ra-xmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0HO-pN-UOf" customClass="ModifyItemImageView" customModule="ReduxDemo" customModuleProvider="target">
+                                <rect key="frame" x="128" y="94" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="6Sn-Bg-k5W"/>
+                                    <constraint firstAttribute="height" constant="120" id="ppe-Xi-lL6"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAi-rL-XQ8" customClass="ModifyItemTitleTextField" customModule="ReduxDemo" customModuleProvider="target">
+                                <rect key="frame" x="127.5" y="244" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="crv-4V-RJK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jAi-rL-XQ8" firstAttribute="centerX" secondItem="wWI-Ra-xmg" secondAttribute="centerX" id="P6b-ga-LTn"/>
+                            <constraint firstItem="jAi-rL-XQ8" firstAttribute="width" secondItem="0HO-pN-UOf" secondAttribute="width" id="grH-Nw-c92"/>
+                            <constraint firstItem="0HO-pN-UOf" firstAttribute="centerX" secondItem="wWI-Ra-xmg" secondAttribute="centerX" id="i2x-zq-lCj"/>
+                            <constraint firstItem="0HO-pN-UOf" firstAttribute="top" secondItem="BqS-Sw-6x0" secondAttribute="bottom" constant="30" id="msV-sM-yUV"/>
+                            <constraint firstItem="jAi-rL-XQ8" firstAttribute="top" secondItem="0HO-pN-UOf" secondAttribute="bottom" constant="30" id="stG-th-AKn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" id="5d6-rb-lCe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Cq-PD-Lhf" customClass="CancelBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Hnz-li-g0P" customClass="SaveModifyItemBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m2X-A1-4XY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="-559"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R8n-1x-abY">
+            <objects>
+                <navigationController storyboardIdentifier="EditComponent" id="5Sh-SV-02s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zg3-8Y-Fa3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Iyp-2c-VL7" kind="relationship" relationship="rootViewController" id="KTZ-Ya-170"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9yv-cE-EnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="-559"/>
         </scene>
     </scenes>
     <resources>

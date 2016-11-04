@@ -14,12 +14,18 @@ import RxExtensions
 struct IconItem: IDHashable, IdentifiableType {
 
     let id: Int64
-    let logo: UIImage
-    let title: String
+    let logo: Variable<UIImage>
+    let title: Variable<String>
+
+    init(id: Int64, logo: UIImage, title: String) {
+        self.id = id
+        self.logo = Variable(logo)
+        self.title = Variable(title)
+    }
 
 }
 
-struct CollectionState: HandleAction {
+struct CollectionState: ReducerAction {
 
     typealias ActionType = CollectionAction
 

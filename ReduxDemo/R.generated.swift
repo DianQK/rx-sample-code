@@ -26,7 +26,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
     /// Image `DianQK`.
     static let dianQK = ImageResource(bundle: _R.hostingBundle, name: "DianQK")
@@ -36,6 +36,8 @@ struct R: Rswift.Validatable {
     static let btn_delete_press = ImageResource(bundle: _R.hostingBundle, name: "btn_delete_press")
     /// Image `btn_delete`.
     static let btn_delete = ImageResource(bundle: _R.hostingBundle, name: "btn_delete")
+    /// Image `redux`.
+    static let redux = ImageResource(bundle: _R.hostingBundle, name: "redux")
     
     /// `UIImage(named: "DianQK", bundle: ..., traitCollection: ...)`
     static func dianQK(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
@@ -55,6 +57,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "btn_delete_press", bundle: ..., traitCollection: ...)`
     static func btn_delete_press(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.btn_delete_press, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "redux", bundle: ..., traitCollection: ...)`
+    static func redux(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.redux, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -135,12 +142,18 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UINavigationController
       
       let bundle = _R.hostingBundle
+      let editComponent = StoryboardViewControllerResource<UINavigationController>(identifier: "EditComponent")
       let name = "Collection"
+      
+      func editComponent(_: Void = ()) -> UINavigationController? {
+        return UIStoryboard(resource: self).instantiateViewController(withResource: editComponent)
+      }
       
       static func validate() throws {
         if UIImage(named: "btn_delete") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete' is used in storyboard 'Collection', but couldn't be loaded.") }
         if UIImage(named: "btn_delete_press") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'btn_delete_press' is used in storyboard 'Collection', but couldn't be loaded.") }
         if UIImage(named: "DianQK") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'DianQK' is used in storyboard 'Collection', but couldn't be loaded.") }
+        if _R.storyboard.collection().editComponent() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'editComponent' could not be loaded from storyboard 'Collection' as 'UINavigationController'.") }
       }
       
       fileprivate init() {}

@@ -28,6 +28,15 @@
 		269A045E1DCB4F1500E75D93 /* CollectionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269A045D1DCB4F1500E75D93 /* CollectionBarButtonItem.swift */; };
 		269A04601DCB505F00E75D93 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269A045F1DCB505F00E75D93 /* CollectionView.swift */; };
 		26BD1AE51DCB849A00472A36 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AE41DCB849A00472A36 /* IconCell.swift */; };
+		26BD1AEC1DCC40E700472A36 /* ItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AEB1DCC40E700472A36 /* ItemState.swift */; };
+		26BD1AEE1DCC437E00472A36 /* ItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AED1DCC437E00472A36 /* ItemAction.swift */; };
+		26BD1AF01DCC4AC300472A36 /* CancelBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AEF1DCC4AC300472A36 /* CancelBarButtonItem.swift */; };
+		26BD1AF21DCC4F6700472A36 /* ModifyItemImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AF11DCC4F6700472A36 /* ModifyItemImageView.swift */; };
+		26BD1AF41DCC508400472A36 /* SaveModifyItemBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AF31DCC508400472A36 /* SaveModifyItemBarButtonItem.swift */; };
+		26BD1AF61DCC520100472A36 /* ModifyItemTitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AF51DCC520100472A36 /* ModifyItemTitleTextField.swift */; };
+		26BD1AF91DCC54D800472A36 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AF81DCC54D800472A36 /* UIImagePickerController+RxCreate.swift */; };
+		26BD1AFC1DCC551A00472A36 /* RxImagePickerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AFA1DCC551A00472A36 /* RxImagePickerDelegateProxy.swift */; };
+		26BD1AFD1DCC551A00472A36 /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BD1AFB1DCC551A00472A36 /* UIImagePickerController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,15 @@
 		269A045D1DCB4F1500E75D93 /* CollectionBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionBarButtonItem.swift; sourceTree = "<group>"; };
 		269A045F1DCB505F00E75D93 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		26BD1AE41DCB849A00472A36 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		26BD1AEB1DCC40E700472A36 /* ItemState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemState.swift; sourceTree = "<group>"; };
+		26BD1AED1DCC437E00472A36 /* ItemAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAction.swift; sourceTree = "<group>"; };
+		26BD1AEF1DCC4AC300472A36 /* CancelBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBarButtonItem.swift; sourceTree = "<group>"; };
+		26BD1AF11DCC4F6700472A36 /* ModifyItemImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyItemImageView.swift; sourceTree = "<group>"; };
+		26BD1AF31DCC508400472A36 /* SaveModifyItemBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveModifyItemBarButtonItem.swift; sourceTree = "<group>"; };
+		26BD1AF51DCC520100472A36 /* ModifyItemTitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyItemTitleTextField.swift; sourceTree = "<group>"; };
+		26BD1AF81DCC54D800472A36 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
+		26BD1AFA1DCC551A00472A36 /* RxImagePickerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxImagePickerDelegateProxy.swift; sourceTree = "<group>"; };
+		26BD1AFB1DCC551A00472A36 /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,14 +111,17 @@
 		269A04211DCB3CFB00E75D93 /* ReduxDemo */ = {
 			isa = PBXGroup;
 			children = (
+				26BD1AFA1DCC551A00472A36 /* RxImagePickerDelegateProxy.swift */,
+				26BD1AFB1DCC551A00472A36 /* UIImagePickerController+Rx.swift */,
+				26BD1AF81DCC54D800472A36 /* UIImagePickerController+RxCreate.swift */,
 				269A045C1DCB4EF500E75D93 /* components */,
+				269A04351DCB3D8200E75D93 /* reducers */,
+				269A04361DCB3D8200E75D93 /* actions */,
+				269A04221DCB3CFB00E75D93 /* AppDelegate.swift */,
 				269A04531DCB3F3200E75D93 /* R.generated.swift */,
 				269A04481DCB3EBE00E75D93 /* AutomaticCollectionViewFlowLayout.swift */,
 				269A04491DCB3EBE00E75D93 /* Collection.storyboard */,
 				269A044B1DCB3EBE00E75D93 /* HUD.swift */,
-				269A04351DCB3D8200E75D93 /* reducers */,
-				269A04361DCB3D8200E75D93 /* actions */,
-				269A04221DCB3CFB00E75D93 /* AppDelegate.swift */,
 				269A04291DCB3CFB00E75D93 /* Assets.xcassets */,
 				269A042B1DCB3CFB00E75D93 /* LaunchScreen.storyboard */,
 				269A042E1DCB3CFB00E75D93 /* Info.plist */,
@@ -113,6 +134,7 @@
 			children = (
 				269A04371DCB3DD900E75D93 /* State.swift */,
 				269A04391DCB3DE900E75D93 /* CollectionState.swift */,
+				26BD1AEB1DCC40E700472A36 /* ItemState.swift */,
 				269A045A1DCB441D00E75D93 /* Dispatch.swift */,
 			);
 			path = reducers;
@@ -123,6 +145,7 @@
 			children = (
 				269A04561DCB40E400E75D93 /* Action.swift */,
 				269A04581DCB411200E75D93 /* CollectionAction.swift */,
+				26BD1AED1DCC437E00472A36 /* ItemAction.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -146,6 +169,10 @@
 				26BD1AE41DCB849A00472A36 /* IconCell.swift */,
 				269A045D1DCB4F1500E75D93 /* CollectionBarButtonItem.swift */,
 				269A045F1DCB505F00E75D93 /* CollectionView.swift */,
+				26BD1AEF1DCC4AC300472A36 /* CancelBarButtonItem.swift */,
+				26BD1AF11DCC4F6700472A36 /* ModifyItemImageView.swift */,
+				26BD1AF31DCC508400472A36 /* SaveModifyItemBarButtonItem.swift */,
+				26BD1AF51DCC520100472A36 /* ModifyItemTitleTextField.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -261,15 +288,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				269A045E1DCB4F1500E75D93 /* CollectionBarButtonItem.swift in Sources */,
+				26BD1AF61DCC520100472A36 /* ModifyItemTitleTextField.swift in Sources */,
 				269A04571DCB40E400E75D93 /* Action.swift in Sources */,
+				26BD1AEE1DCC437E00472A36 /* ItemAction.swift in Sources */,
 				26BD1AE51DCB849A00472A36 /* IconCell.swift in Sources */,
+				26BD1AF01DCC4AC300472A36 /* CancelBarButtonItem.swift in Sources */,
+				26BD1AFC1DCC551A00472A36 /* RxImagePickerDelegateProxy.swift in Sources */,
 				269A04591DCB411200E75D93 /* CollectionAction.swift in Sources */,
 				269A04601DCB505F00E75D93 /* CollectionView.swift in Sources */,
+				26BD1AFD1DCC551A00472A36 /* UIImagePickerController+Rx.swift in Sources */,
 				269A043A1DCB3DE900E75D93 /* CollectionState.swift in Sources */,
+				26BD1AEC1DCC40E700472A36 /* ItemState.swift in Sources */,
+				26BD1AF21DCC4F6700472A36 /* ModifyItemImageView.swift in Sources */,
 				269A04541DCB3F3200E75D93 /* R.generated.swift in Sources */,
 				269A04231DCB3CFB00E75D93 /* AppDelegate.swift in Sources */,
+				26BD1AF41DCC508400472A36 /* SaveModifyItemBarButtonItem.swift in Sources */,
 				269A045B1DCB441D00E75D93 /* Dispatch.swift in Sources */,
 				269A04501DCB3EBE00E75D93 /* HUD.swift in Sources */,
+				26BD1AF91DCC54D800472A36 /* UIImagePickerController+RxCreate.swift in Sources */,
 				269A044D1DCB3EBE00E75D93 /* AutomaticCollectionViewFlowLayout.swift in Sources */,
 				269A04381DCB3DD900E75D93 /* State.swift in Sources */,
 			);

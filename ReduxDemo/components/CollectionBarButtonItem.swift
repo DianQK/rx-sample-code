@@ -14,7 +14,7 @@ import RxExtensions
 class CollectionBarButtonItem: ReactiveBarButtonItem {
 
     override func commonInit() {
-        state.collection
+        _state.collection
             .isEditing.asObservable()
             .map { $0 ? "Done" : "Edit" }
             .bindTo(self.rx.title)

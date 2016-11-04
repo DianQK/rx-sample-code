@@ -11,4 +11,5 @@ import RxSwift
 
 enum Action {
     case collection(CollectionAction)
+    case item(ItemAction)
 }

@@ -9,26 +9,29 @@
 import Foundation
 import RxSwift
 
-protocol HandleAction {
+protocol ReducerAction {
     associatedtype ActionType
     mutating func reducer(_ action: ActionType)
 }
 
-var state = State()
+/// 全局 state
+var _state = State()
 
-struct State: HandleAction {
+struct State: ReducerAction {
 
     mutating func reducer(_ action: Action) {
         switch action {
         case let .collection(action):
             collection.reducer(action)
+        case let .item(action):
+            item.reducer(action)
         }
     }
 
     typealias ActionType = Action
 
-    fileprivate init() { }
-
     lazy var collection = CollectionState()
+
+    lazy var item = ItemState()
     
 }

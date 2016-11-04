@@ -25,9 +25,9 @@ class IconCell: ReactiveCollectionViewCell {
     let item = ReplaySubject<IconItem>.create(bufferSize: 1)
 
     override func commonInit() {
-        item.map { $0.logo }.bindTo(iconImageView.rx.image).addDisposableTo(disposeBag)
-        item.map { $0.title }.bindTo(titleLabel.rx.text).addDisposableTo(disposeBag)
-        Observable.combineLatest(item, state.collection
+        item.flatMapLatest { $0.logo.asObservable() }.bindTo(iconImageView.rx.image).addDisposableTo(disposeBag)
+        item.flatMapLatest { $0.title.asObservable() }.bindTo(titleLabel.rx.text).addDisposableTo(disposeBag)
+        Observable.combineLatest(item, _state.collection
             .isEditing.asObservable()) { $0.1 }
             .bindTo(self.rx.isEditing)
             .addDisposableTo(disposeBag)
