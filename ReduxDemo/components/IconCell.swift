@@ -15,27 +15,34 @@ class IconCell: ReactiveCollectionViewCell {
 
     @IBOutlet private weak var iconImageView: UIImageView! {
         didSet {
-            self.iconImageView.layer.cornerRadius = 8.0
-            self.iconImageView.layer.masksToBounds = true
+            iconImageView.layer.cornerRadius = 8.0
+            iconImageView.layer.masksToBounds = true
+            item.flatMapLatest { $0.logo.asObservable() }.bindTo(iconImageView.rx.image).addDisposableTo(disposeBag)
         }
     }
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var deleteButton: UIButton!
+
+    @IBOutlet private weak var titleLabel: UILabel! {
+        didSet {
+            item.flatMapLatest { $0.title.asObservable() }.bindTo(titleLabel.rx.text).addDisposableTo(disposeBag)
+        }
+    }
+
+    @IBOutlet private weak var deleteButton: UIButton! {
+        didSet {
+            deleteButton.rx.tap
+                .withLatestFrom(item.asObservable())
+                .map { Action.collection(CollectionAction.remove(item: $0)) }
+                .dispatch()
+                .addDisposableTo(disposeBag)
+        }
+    }
 
     let item = ReplaySubject<IconItem>.create(bufferSize: 1)
 
     override func commonInit() {
-        item.flatMapLatest { $0.logo.asObservable() }.bindTo(iconImageView.rx.image).addDisposableTo(disposeBag)
-        item.flatMapLatest { $0.title.asObservable() }.bindTo(titleLabel.rx.text).addDisposableTo(disposeBag)
         Observable.combineLatest(item, _state.collection
             .isEditing.asObservable()) { $0.1 }
             .bindTo(self.rx.isEditing)
-            .addDisposableTo(disposeBag)
-
-        deleteButton.rx.tap
-            .withLatestFrom(item.asObservable())
-            .map { Action.collection(CollectionAction.remove(item: $0)) }
-            .dispatch()
             .addDisposableTo(disposeBag)
     }
 

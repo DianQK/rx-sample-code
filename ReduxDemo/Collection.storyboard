@@ -33,7 +33,7 @@
         <!--Collection-->
         <scene sceneID="3N4-ST-v8n">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kZh-Zb-0Ys" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kZh-Zb-0Ys" customClass="CollectionList" customModule="ReduxDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6xT-wn-v7c"/>
                         <viewControllerLayoutGuide type="bottom" id="fPo-WL-2zd"/>
@@ -116,12 +116,14 @@
                             <constraint firstItem="fPo-WL-2zd" firstAttribute="top" secondItem="ux2-VX-mlu" secondAttribute="bottom" id="eiR-Eh-5Rx"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="eXw-T7-nlC"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Collection" id="R7B-vE-Ly7">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="T0H-87-Y9x" customClass="CollectionBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="T0H-87-Y9x" customClass="ReactiveBarButtonItem" customModule="RxExtensions"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionEditBarButtonItem" destination="T0H-87-Y9x" id="dCW-TN-9GP"/>
+                        <outlet property="collectionView" destination="ux2-VX-mlu" id="7fT-nS-Ibz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vS-T6-6Co" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +132,7 @@
         <!--Edit-->
         <scene sceneID="hKh-fw-VzB">
             <objects>
-                <viewController id="Iyp-2c-VL7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditItem" id="Iyp-2c-VL7" customClass="EditItem" customModule="ReduxDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BqS-Sw-6x0"/>
                         <viewControllerLayoutGuide type="bottom" id="BOj-XN-sM0"/>
@@ -139,14 +141,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0HO-pN-UOf" customClass="ModifyItemImageView" customModule="ReduxDemo" customModuleProvider="target">
-                                <rect key="frame" x="128" y="94" width="120" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0HO-pN-UOf" customClass="ReactiveImageView" customModule="RxExtensions">
+                                <rect key="frame" x="127.5" y="94" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="6Sn-Bg-k5W"/>
                                     <constraint firstAttribute="height" constant="120" id="ppe-Xi-lL6"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAi-rL-XQ8" customClass="ModifyItemTitleTextField" customModule="ReduxDemo" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAi-rL-XQ8" customClass="ReactiveTextField" customModule="RxExtensions">
                                 <rect key="frame" x="127.5" y="244" width="120" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="crv-4V-RJK"/>
@@ -166,9 +168,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="5d6-rb-lCe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Cq-PD-Lhf" customClass="CancelBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Hnz-li-g0P" customClass="SaveModifyItemBarButtonItem" customModule="ReduxDemo" customModuleProvider="target"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5Cq-PD-Lhf" customClass="ReactiveBarButtonItem" customModule="RxExtensions"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Hnz-li-g0P" customClass="ReactiveBarButtonItem" customModule="RxExtensions"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelBarButtonItem" destination="5Cq-PD-Lhf" id="XhZ-bK-Sx0"/>
+                        <outlet property="editImageView" destination="0HO-pN-UOf" id="7xz-1a-RjA"/>
+                        <outlet property="editTitleField" destination="jAi-rL-XQ8" id="iCc-eY-dq1"/>
+                        <outlet property="saveBarButtonItem" destination="Hnz-li-g0P" id="Mhx-Om-CYK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2X-A1-4XY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9yv-cE-EnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="-559"/>
+            <point key="canvasLocation" x="686" y="-559"/>
         </scene>
     </scenes>
     <resources>

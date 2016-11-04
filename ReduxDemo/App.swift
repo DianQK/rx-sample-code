@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  App.swift
 //  ReduxDemo
 //
 //  Created by DianQK on 03/11/2016.
@@ -11,7 +11,7 @@ import RxSwift
 import RxExtensions
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class App: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // 如果删除了修改项目，则返回到之前页面
                     guard let top = topViewController() else { return }
                     top.view.endEditing(true)
-                    top.dismiss(animated: true, completion: nil)
+                    dismissViewController(top, animated: true)
                 }
             })
             .addDisposableTo(disposeBag)

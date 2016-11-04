@@ -19,14 +19,18 @@ class CollectionView: ReactiveCollectionView {
     private let _dataSource = RxCollectionViewSectionedAnimatedDataSource<IconSectionModel>()
 
     override func commonInit() {
-      _dataSource.configureCell = { dataSource, collectionView, indexPath, element in
+        _dataSource.configureCell = { _, collectionView, indexPath, element in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.iconCell, for: indexPath)!
             cell.item.onNext(element)
             return cell
         }
 
-        _dataSource.moveItem = { dataSource, sourceIndexPath, destinationIndexPath in
+        _dataSource.moveItem = { _, sourceIndexPath, destinationIndexPath in
             dispatch(Action.collection(.move(sourceIndex: sourceIndexPath.row, destinationIndex: destinationIndexPath.row)))
+        }
+
+        _dataSource.canMoveItemAtIndexPath = { _, indexPath in
+            return indexPath.row < _state.collection.elements.value.count
         }
 
         Observable
@@ -70,8 +74,7 @@ class CollectionView: ReactiveCollectionView {
                 if items.count == 2 && items[0] == items[1] {
                     return Observable.just(Action.item(.modifyItem(items[0])))
                 }
-                if items.count == 1 {
-                    let item = items[0]
+                if let item = items.first , items.count == 1 {
                     if item.id != 0 {
                         if !_state.collection.isEditing.value {
                             HUD.showMessage(item.title.value)
