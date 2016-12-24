@@ -12,9 +12,11 @@
         <scene sceneID="SUb-D5-eFq">
             <objects>
                 <navigationController id="gAb-7m-ro0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ied-nZ-ue2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ied-nZ-ue2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Dhx-Nj-7wQ"/>
@@ -33,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NUm-A4-fFd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GEX-rA-s0r">
                                     <size key="itemSize" width="50" height="50"/>
@@ -105,8 +107,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Questions" id="NNG-gj-jju">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="j3K-iX-bif"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="j3K-iX-bif">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="doneBarButtonItem" destination="j3K-iX-bif" id="TUh-8B-cvR"/>
                         <outlet property="questionsCollectionView" destination="NUm-A4-fFd" id="Apf-dU-wNe"/>

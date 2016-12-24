@@ -12,6 +12,7 @@ import RxCocoa
 import RxDataSources
 
 class RxCollectionViewSectionedAnimatedCompletedDataSource<S : AnimatableSectionModelType>: RxCollectionViewSectionedAnimatedDataSource<S> {
+
     var performBatchUpdatesCompletion: (() -> ())?
 
 
