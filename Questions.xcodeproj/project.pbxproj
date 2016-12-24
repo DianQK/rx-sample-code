@@ -12,7 +12,6 @@
 		2661CBFE1DD4734800CEA9B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2661CBFC1DD4734800CEA9B4 /* Main.storyboard */; };
 		2661CC001DD4734800CEA9B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2661CBFF1DD4734800CEA9B4 /* Assets.xcassets */; };
 		2661CC031DD4734800CEA9B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2661CC011DD4734800CEA9B4 /* LaunchScreen.storyboard */; };
-		2661CC111DD473E800CEA9B4 /* RxExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661CC0B1DD473E800CEA9B4 /* RxExtensions.framework */; };
 		2661CC121DD473E800CEA9B4 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661CC0C1DD473E800CEA9B4 /* RxDataSources.framework */; };
 		2661CC131DD473E800CEA9B4 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661CC0D1DD473E800CEA9B4 /* RxSwift.framework */; };
 		2661CC141DD473E800CEA9B4 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661CC0E1DD473E800CEA9B4 /* RxCocoa.framework */; };
@@ -22,6 +21,7 @@
 		2661CC1B1DD4752A00CEA9B4 /* OptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661CC1A1DD4752A00CEA9B4 /* OptionCollectionViewCell.swift */; };
 		2661CC1F1DD4761D00CEA9B4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661CC1E1DD4761D00CEA9B4 /* R.generated.swift */; };
 		2661CC211DD485CD00CEA9B4 /* RxCollectionViewSectionedAnimatedCompletedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661CC201DD485CD00CEA9B4 /* RxCollectionViewSectionedAnimatedCompletedDataSource.swift */; };
+		56BEE6341E0E29C300E1448C /* RxExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661CC0B1DD473E800CEA9B4 /* RxExtensions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2661CC111DD473E800CEA9B4 /* RxExtensions.framework in Frameworks */,
+				56BEE6341E0E29C300E1448C /* RxExtensions.framework in Frameworks */,
 				2661CC121DD473E800CEA9B4 /* RxDataSources.framework in Frameworks */,
 				2661CC131DD473E800CEA9B4 /* RxSwift.framework in Frameworks */,
 				2661CC141DD473E800CEA9B4 /* RxCocoa.framework in Frameworks */,
@@ -137,7 +137,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = T;
 				TargetAttributes = {
 					2661CBF41DD4734800CEA9B4 = {
@@ -268,6 +268,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -318,6 +319,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

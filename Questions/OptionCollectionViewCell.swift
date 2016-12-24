@@ -10,16 +10,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import RxExtensions
 
-class OptionCollectionViewCell: UICollectionViewCell {
+class OptionCollectionViewCell: ReactiveCollectionViewCell {
 
     @IBOutlet weak var displayImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentView.alpha = 1
+    }
+    
+}
 
-    var isDisabled: Bool = false {
-        didSet {
-            UIView.animate(withDuration: 0.3) {
-                self.contentView.alpha = self.isDisabled ? 0.5 : 1
-            }
+extension Reactive where Base: OptionCollectionViewCell {
+    
+    var isSelected: UIBindingObserver<OptionCollectionViewCell, Bool> {
+        return UIBindingObserver<OptionCollectionViewCell, Bool>(UIElement: self.base) { cell, isSelected in
+            cell.contentView.alpha = isSelected ? 1 : 0.5
         }
     }
     

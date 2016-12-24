@@ -12,48 +12,68 @@ import RxCocoa
 import RxDataSources
 import RxExtensions
 
-struct Option: IDHashable, IdentifiableType {
+struct Option: IdentifiableType, Hashable {
     let id: Int
     let image: UIImage
+    let isSelected = Variable<Bool?>(nil)
+    
+    var identity: Int {
+        return id
+    }
+    
+    var hashValue: Int {
+        return id.hashValue
+    }
+    
+    static func ==(lhs: Option, rhs: Option) -> Bool {
+        switch (lhs.isSelected.value, rhs.isSelected.value) {
+        case (let .some(lhsIsSelected), let .some(rhsIsSelected)) where lhsIsSelected == rhsIsSelected :
+            return lhs.id == rhs.id && lhs.image == rhs.image
+        case (.none, .none):
+            return lhs.id == rhs.id && lhs.image == rhs.image
+        default:
+            return false
+        }
+    }
+    
+    
 }
 
 typealias QuestionSectionModel = AnimatableSectionModel<String, Option>
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var questionsCollectionView: UICollectionView! {
+    @IBOutlet private weak var questionsCollectionView: UICollectionView! {
         didSet {
             questionsCollectionView.allowsSelection = true
+            questionsCollectionView.allowsMultipleSelection = true
         }
     }
+    
+    @IBOutlet private weak var doneBarButtonItem: UIBarButtonItem!
 
-    let questions: Variable<[QuestionSectionModel]> = Variable([])
+    private let questions: Variable<[QuestionSectionModel]> = Variable([])
 
-    let dataSource = RxCollectionViewSectionedAnimatedCompletedDataSource<QuestionSectionModel>()
+    fileprivate let dataSource = RxCollectionViewSectionedAnimatedCompletedDataSource<QuestionSectionModel>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        questions.value = [
-            QuestionSectionModel(model: "问题 1", items: [
-                Option(id: 11, image: R.image.dianqk()!),
-                Option(id: 12, image: R.image.dianqk()!),
-                Option(id: 13, image: R.image.dianqk()!),
-                Option(id: 14, image: R.image.dianqk()!),
-                Option(id: 15, image: R.image.dianqk()!)
-                ])
-        ]
+        questions.value = defaultQuestions
 
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
 
         dataSource.configureCell = { dataSource, collectionView, indexPath, element in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.optionCollectionViewCell, for: indexPath)!
             cell.displayImageView.image = element.image
+            element.isSelected.asObservable().filterNil()
+                .bindTo(cell.rx.isSelected)
+                .addDisposableTo(cell.prepareForReuseBag)
             return cell
         }
 
         dataSource.performBatchUpdatesCompletion = {
-            self.questionsCollectionView.scrollToItem(at: IndexPath.init(row: 0, section: self.questions.value.count - 1), at: UICollectionViewScrollPosition.top, animated: true)
+            self.questionsCollectionView.scrollToItem(at: IndexPath(row: 0, section: self.questions.value.count - 1), at: UICollectionViewScrollPosition.top, animated: true)
         }
 
         dataSource.supplementaryViewFactory = { dataSource, collectionView, kind, indexPath in
@@ -63,15 +83,41 @@ class ViewController: UIViewController {
         }
 
         questionsCollectionView.rx.itemSelected.asObservable()
-            .subscribe(onNext: { indexPath in
-                self.questions.value.append(self.createQuestion(for: self.questions.value.count))
+            .subscribe(onNext: { [unowned self] indexPath in
+                self.dataSource[indexPath.section].items.enumerated()
+                    .forEach { (offset, element) in
+                        element.isSelected.value = offset == indexPath.row
+                }
+                self.questions.value.append(self.createQuestion(for: self.questions.value.count + 1))
             })
             .addDisposableTo(rx.disposeBag)
+        
+        questionsCollectionView.rx.setDelegate(self).addDisposableTo(rx.disposeBag)
 
         questions.asObservable()
             .bindTo(questionsCollectionView.rx.items(dataSource: dataSource))
             .addDisposableTo(rx.disposeBag)
+        
+        let result = questions.asObservable().map { $0.flatMap { $0.items } }
+            .flatMap { options -> Observable<[Int]> in
+                Observable.combineLatest(options.map { option in
+                    option.isSelected.asObservable().map { (isSelected: $0, id: option.id) }
+                }) { $0.flatMap { ($0.isSelected ?? false) ? $0.id : nil }  }
+        }
+        
+        doneBarButtonItem.rx.tap.asObservable()
+            .withLatestFrom(result)
+            .map { $0.map { "\($0)" }.joined(separator: ",") }
+            .flatMap { showAlert(title: nil, message: $0) }
+            .subscribe(onNext: { [unowned self] in
+                self.questions.value = self.defaultQuestions
+            })
+            .addDisposableTo(rx.disposeBag)
 
+    }
+    
+    var defaultQuestions: [QuestionSectionModel] {
+        return [createQuestion(for: 1)]
     }
 
     func createQuestion(for index: Int) -> QuestionSectionModel {
@@ -84,4 +130,12 @@ class ViewController: UIViewController {
             ])
     }
 
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == (self.dataSource.sectionModels.count - 1)
+    }
+    
 }
