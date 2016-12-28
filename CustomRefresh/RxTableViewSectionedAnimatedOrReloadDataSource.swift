@@ -28,10 +28,6 @@ open class RxTableViewSectionedAnimatedOrReloadDataSource<S: AnimatableSectionMo
     public typealias Element = RefreshSectionList<S>
     public var animationConfiguration = AnimationConfiguration()
     
-    public override init() {
-        super.init()
-    }
-    
     open func tableView(_ tableView: UITableView, observedEvent: Event<Element>) {
         UIBindingObserver(UIElement: self) { dataSource, newSectionlist in
             if newSectionlist.isRefresh {
