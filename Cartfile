@@ -1,4 +1,4 @@
-github "ReactiveX/RxSwift" ~> 3.0
+github "ReactiveX/RxSwift" ~> 3.1
 github "mac-cain13/R.swift.Library" ~> 3.0
 github "SwiftyJSON/SwiftyJSON" ~> 3.1
 github "DianQK/RxExtensions" "master"
