@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26B9635E1E14F86100476B65 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B9635C1E14F86100476B65 /* RxDataSources.framework */; };
+		26B9635F1E14F86100476B65 /* RxExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B9635D1E14F86100476B65 /* RxExtensions.framework */; };
+		26B963611E14F89300476B65 /* RetryByUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B963601E14F89300476B65 /* RetryByUserViewController.swift */; };
+		26B963631E15114300476B65 /* RandomKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B963621E15114300476B65 /* RandomKit.framework */; };
+		26B963651E15139200476B65 /* ShiftOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B963641E15139200476B65 /* ShiftOperations.framework */; };
+		26B963671E151A9800476B65 /* RetryOrDefaultByUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B963661E151A9800476B65 /* RetryOrDefaultByUserViewController.swift */; };
 		567139AF1E12C6350068A232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567139AE1E12C6350068A232 /* AppDelegate.swift */; };
 		567139B41E12C6350068A232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567139B21E12C6350068A232 /* Main.storyboard */; };
 		567139B61E12C6350068A232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567139B51E12C6350068A232 /* Assets.xcassets */; };
@@ -19,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26B9635C1E14F86100476B65 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		26B9635D1E14F86100476B65 /* RxExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxExtensions.framework; path = Carthage/Build/iOS/RxExtensions.framework; sourceTree = "<group>"; };
+		26B963601E14F89300476B65 /* RetryByUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryByUserViewController.swift; sourceTree = "<group>"; };
+		26B963621E15114300476B65 /* RandomKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RandomKit.framework; path = Carthage/Build/iOS/RandomKit.framework; sourceTree = "<group>"; };
+		26B963641E15139200476B65 /* ShiftOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShiftOperations.framework; path = Carthage/Build/iOS/ShiftOperations.framework; sourceTree = "<group>"; };
+		26B963661E151A9800476B65 /* RetryOrDefaultByUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryOrDefaultByUserViewController.swift; sourceTree = "<group>"; };
 		567139AB1E12C6350068A232 /* HandleError.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandleError.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567139AE1E12C6350068A232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567139B31E12C6350068A232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B963651E15139200476B65 /* ShiftOperations.framework in Frameworks */,
+				26B963631E15114300476B65 /* RandomKit.framework in Frameworks */,
+				26B9635E1E14F86100476B65 /* RxDataSources.framework in Frameworks */,
+				26B9635F1E14F86100476B65 /* RxExtensions.framework in Frameworks */,
 				567139C31E12C65F0068A232 /* RxCocoa.framework in Frameworks */,
 				567139C41E12C65F0068A232 /* RxSwift.framework in Frameworks */,
 			);
@@ -45,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26B9635B1E14F7DC00476B65 /* Retry */ = {
+			isa = PBXGroup;
+			children = (
+				26B963601E14F89300476B65 /* RetryByUserViewController.swift */,
+				26B963661E151A9800476B65 /* RetryOrDefaultByUserViewController.swift */,
+			);
+			path = Retry;
+			sourceTree = "<group>";
+		};
 		567139A21E12C6350068A232 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +90,7 @@
 		567139AD1E12C6350068A232 /* HandleError */ = {
 			isa = PBXGroup;
 			children = (
+				26B9635B1E14F7DC00476B65 /* Retry */,
 				567139C61E12C7640068A232 /* QRScan */,
 				567139AE1E12C6350068A232 /* AppDelegate.swift */,
 				567139B21E12C6350068A232 /* Main.storyboard */,
@@ -78,6 +104,10 @@
 		567139C01E12C65E0068A232 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26B963641E15139200476B65 /* ShiftOperations.framework */,
+				26B963621E15114300476B65 /* RandomKit.framework */,
+				26B9635C1E14F86100476B65 /* RxDataSources.framework */,
+				26B9635D1E14F86100476B65 /* RxExtensions.framework */,
 				567139C11E12C65F0068A232 /* RxCocoa.framework */,
 				567139C21E12C65F0068A232 /* RxSwift.framework */,
 			);
@@ -180,6 +210,10 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxExtensions.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RandomKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ShiftOperations.framework",
 			);
 			outputPaths = (
 			);
@@ -196,8 +230,10 @@
 			files = (
 				567139CE1E12CD850068A232 /* RxAVCaptureMetadataOutputObjectsDelegateProxy.swift in Sources */,
 				567139C91E12C78C0068A232 /* QRScanResultViewController.swift in Sources */,
+				26B963671E151A9800476B65 /* RetryOrDefaultByUserViewController.swift in Sources */,
 				567139CB1E12C7980068A232 /* QRReadViewController.swift in Sources */,
 				567139AF1E12C6350068A232 /* AppDelegate.swift in Sources */,
+				26B963611E14F89300476B65 /* RetryByUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

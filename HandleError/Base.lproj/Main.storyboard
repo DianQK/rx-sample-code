@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yUe-tq-wyQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yUe-tq-wyQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,13 +40,25 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="crW-fN-yAb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cui-MZ-Yyb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="m8W-he-Ojl" style="IBUITableViewCellStyleDefault" id="cui-MZ-Yyb">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cui-MZ-Yyb" id="ZZv-CN-vD5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="手动触发重试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m8W-he-Ojl">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AiJ-Q3-NeK" kind="show" id="krM-s7-psd"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wFY-L7-W1y">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -69,6 +81,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paN-Kg-ItB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-287" y="154"/>
+        </scene>
+        <!--Retry By User View Controller-->
+        <scene sceneID="dR0-jx-Wdi">
+            <objects>
+                <viewController storyboardIdentifier="RetryByUserViewController" id="AiJ-Q3-NeK" customClass="RetryByUserViewController" customModule="HandleError" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="94F-HU-QuB"/>
+                        <viewControllerLayoutGuide type="bottom" id="gx6-dD-DIl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eZe-fe-sGS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eQ-h1-fq9">
+                                <rect key="frame" x="159.5" y="316.5" width="57" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3eQ-h1-fq9" firstAttribute="centerX" secondItem="eZe-fe-sGS" secondAttribute="centerX" id="arg-cP-eVw"/>
+                            <constraint firstItem="3eQ-h1-fq9" firstAttribute="centerY" secondItem="eZe-fe-sGS" secondAttribute="centerY" id="eu4-Fh-2Zz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="requestButton" destination="3eQ-h1-fq9" id="MAs-il-E1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otd-ld-4Po" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="686"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KJ9-JS-R2w">
