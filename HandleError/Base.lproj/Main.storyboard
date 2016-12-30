@@ -60,13 +60,25 @@
                                             <segue destination="AiJ-Q3-NeK" kind="show" id="krM-s7-psd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wFY-L7-W1y">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="USR-X5-92V" style="IBUITableViewCellStyleDefault" id="wFY-L7-W1y">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wFY-L7-W1y" id="cTh-jT-XBk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="手动触发重试或者选择默认值替代" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="USR-X5-92V">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ikt-Vh-fHV" kind="show" id="A7D-go-k7v"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -204,6 +216,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFJ-PT-VY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1407" y="0.0"/>
+        </scene>
+        <!--Retry Or Default By User View Controller-->
+        <scene sceneID="wFM-Ip-uOd">
+            <objects>
+                <viewController storyboardIdentifier="RetryOrDefaultByUserViewController" id="Ikt-Vh-fHV" customClass="RetryOrDefaultByUserViewController" customModule="HandleError" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wqe-sb-8Cr"/>
+                        <viewControllerLayoutGuide type="bottom" id="IwY-GU-n9g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="utb-gT-2y0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-gH-k5C">
+                                <rect key="frame" x="159" y="316" width="57" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xtE-gH-k5C" firstAttribute="centerY" secondItem="utb-gT-2y0" secondAttribute="centerY" id="9Vj-tF-2VC"/>
+                            <constraint firstItem="xtE-gH-k5C" firstAttribute="centerX" secondItem="utb-gT-2y0" secondAttribute="centerX" id="yS8-tE-SsL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcQ-Bn-GLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="566" y="1377"/>
         </scene>
     </scenes>
 </document>

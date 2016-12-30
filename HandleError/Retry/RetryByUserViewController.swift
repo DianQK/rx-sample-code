@@ -44,9 +44,18 @@ class RetryByUserViewController: UIViewController {
         ///
         /// - notPositive: 不是正数
         /// - oversize: 数字过大
-        enum MyError: Swift.Error {
+        enum MyError: Swift.Error, LocalizedError {
             case notPositive(value: Int)
             case oversize(value: Int)
+
+            var errorDescription: String? {
+                switch self {
+                case let .notPositive(value):
+                    return "\(value)不是正式"
+                case let .oversize(value):
+                    return "\(value)过大"
+                }
+            }
         }
 
         Observable<Int>
@@ -62,6 +71,7 @@ class RetryByUserViewController: UIViewController {
                     return value
                 }
             }
+            .debug()
             .retryWhen { [unowned self] (errorObservable: Observable<MyError>) -> Observable<()> in
                 errorObservable
                     .flatMap { error -> Observable<()> in
