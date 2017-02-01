@@ -24,7 +24,7 @@ class RxCollectionViewSectionedAnimatedCompletedDataSource<S : AnimatableSection
         UIBindingObserver(UIElement: self) { dataSource, newSections in
             let oldSections = dataSource.sectionModels
             do {
-                let differences = try differencesForSectionedView(oldSections, finalSections: newSections)
+                let differences = try differencesForSectionedView(initialSections: oldSections, finalSections: newSections)
 
                 for difference in differences {
                     dataSource.setSections(difference.finalSections)

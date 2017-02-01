@@ -62,6 +62,6 @@ extension Reactive where Base: UISwitch {
 
 extension Reactive where Base: SelectTableViewHeaderFooterView {
     var isSelected: ControlProperty<Bool> {
-        return base.selectSwitch.rx.isOn
+        return base.selectSwitch.rx.isOn(animated: true)
     }
 }

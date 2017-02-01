@@ -19,9 +19,12 @@ class TapCellTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         do {
             tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
-            tableView.rx.setDelegate(self).addDisposableTo(rx.disposeBag)
+            tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         }
 
         do {
@@ -41,7 +44,7 @@ class TapCellTableViewController: UITableViewController {
 
             sections
                 .bindTo(tableView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
@@ -51,18 +54,18 @@ class TapCellTableViewController: UITableViewController {
 //                    alert.addAction(UIAlertAction(title: "好", style: .default, handler: nil))
 //                    self.showDetailViewController(alert, sender: nil)
 //                    })
-//                .addDisposableTo(rx.disposeBag)
+//                .disposed(by: rx.disposeBag)
 
 //            tableView.rx.itemSelected
 //                .subscribe(onNext: { [unowned self] indexPath in
 //                    self.tableView.deselectRow(at: indexPath, animated: true)
 //                })
-//                .addDisposableTo(rx.disposeBag)
+//                .disposed(by: rx.disposeBag)
 
 //            tableView.rx.itemSelected
 //                .map { (at: $0, animated: true) }
 //                .subscribe(onNext: tableView.deselectRow)
-//                .addDisposableTo(rx.disposeBag)
+//                .disposed(by: rx.disposeBag)
 
 //            tableView.rx.itemSelected
 //                .subscribe(onNext: { [unowned self] indexPath in
@@ -74,7 +77,7 @@ class TapCellTableViewController: UITableViewController {
 //                    }))
 //                    self.showDetailViewController(alert, sender: nil)
 //                })
-//                .addDisposableTo(rx.disposeBag)
+//                .disposed(by: rx.disposeBag)
 
             tableView.rx.itemSelected
                 .flatMap { [unowned self] indexPath -> Observable<IndexPath> in
@@ -85,7 +88,7 @@ class TapCellTableViewController: UITableViewController {
                 }
                 .map { (at: $0, animated: true) }
                 .subscribe(onNext: tableView.deselectRow)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

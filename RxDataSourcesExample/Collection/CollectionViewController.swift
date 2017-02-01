@@ -84,14 +84,14 @@ class CollectionViewController: UIViewController {
             state.asObservable()
                 .map { $0.actionBarTitle }
                 .bindTo(actionBarButtonItem.rx.title)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
 
             actionBarButtonItem
                 .rx.tap
                 .withLatestFrom(state.asObservable())
                 .reverse()
                 .bindTo(state)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
@@ -108,11 +108,11 @@ class CollectionViewController: UIViewController {
                             guard let index = self.items.value.index(of: element) else { return }
                             self.items.value.remove(at: index)
                         })
-                        .addDisposableTo(cell.prepareForReuseBag)
+                        .disposed(by: cell.prepareForReuseBag)
                     self.state.asObservable()
                         .map { $0.isEditing }
                         .bindTo(cell.rx.isEditing)
-                        .addDisposableTo(cell.prepareForReuseBag)
+                        .disposed(by: cell.prepareForReuseBag)
                 }
                 return cell
             }
@@ -135,7 +135,7 @@ class CollectionViewController: UIViewController {
                 }
                 .map { [IconSectionModel(model: "", items: $0)] }
                 .bindTo(collectionView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
@@ -157,7 +157,7 @@ class CollectionViewController: UIViewController {
                         self.collectionView.cancelInteractiveMovement()
                     }
                 })
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
             self.collectionView.addGestureRecognizer(long)
         }
 
@@ -173,7 +173,7 @@ class CollectionViewController: UIViewController {
                     guard !self.state.value.isEditing else { return }
                     HUD.showMessage(item.title)
                 })
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

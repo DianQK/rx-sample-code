@@ -57,6 +57,9 @@ class CellButtonClickTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         let infoItems = [
             Info(name: "Apple Developer", url: URL(string: "https://developer.apple.com/")!),
             Info(name: "GitHub", url: URL(string: "https://github.com")!),
@@ -79,9 +82,9 @@ class CellButtonClickTableViewController: UITableViewController {
                         safari.preferredControlTintColor = UIColor.black
                         self.showDetailViewController(safari, sender: nil)
                         })
-                    .addDisposableTo(cell.disposeBag)
+                    .disposed(by: cell.disposeBag)
             }
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
     }
 

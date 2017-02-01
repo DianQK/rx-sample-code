@@ -21,7 +21,7 @@ class CustomSectionTableViewController: UITableViewController {
 
         do {
             tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
-            tableView.rx.setDelegate(self).addDisposableTo(rx.disposeBag)
+            tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         }
 
         do {
@@ -41,7 +41,7 @@ class CustomSectionTableViewController: UITableViewController {
 
             sections
                 .bindTo(tableView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

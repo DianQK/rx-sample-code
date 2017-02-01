@@ -19,6 +19,9 @@ class SectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         let dataSource = RxTableViewSectionedReloadDataSource<TitleSectionModel>()
 
         dataSource.configureCell = { dataSource, tableView, indexPath, item in
@@ -39,7 +42,7 @@ class SectionTableViewController: UITableViewController {
 
         sections
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
     }
 

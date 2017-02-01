@@ -39,7 +39,6 @@ class RetryByUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         /// 自定义的错误
         ///
         /// - notPositive: 不是正数
@@ -51,7 +50,7 @@ class RetryByUserViewController: UIViewController {
             var errorDescription: String? {
                 switch self {
                 case let .notPositive(value):
-                    return "\(value)不是正式"
+                    return "\(value)不是正数"
                 case let .oversize(value):
                     return "\(value)过大"
                 }
@@ -92,7 +91,7 @@ class RetryByUserViewController: UIViewController {
             }
             .debug()
             .subscribe()
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

@@ -81,6 +81,8 @@ class MultipleCellTableViewController: UITableViewController {
         super.viewDidLoad()
 
         do {
+            tableView.dataSource = nil
+            tableView.delegate = nil
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 60
             tableView.contentInset = UIEdgeInsets(top: -25, left: 0, bottom: 0, right: 0)
@@ -121,7 +123,7 @@ class MultipleCellTableViewController: UITableViewController {
 
             Observable.just(profileSections)
                 .bindTo(tableView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

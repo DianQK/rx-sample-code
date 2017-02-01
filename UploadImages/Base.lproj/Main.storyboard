@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LEs-h8-3eT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Vhx-2m-0h8">
+            <objects>
+                <navigationController id="LEs-h8-3eT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pb7-qQ-nlT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="I8X-8e-IvC" kind="relationship" relationship="rootViewController" id="0cL-Dh-rIy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MrY-DC-kdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-274" y="161"/>
+        </scene>
+        <!--Upload Image View Controller-->
+        <scene sceneID="GLL-nv-Soc">
+            <objects>
+                <viewController storyboardIdentifier="UploadImageViewController" automaticallyAdjustsScrollViewInsets="NO" id="I8X-8e-IvC" customClass="UploadImageViewController" customModule="UploadImageDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3wy-9a-fka"/>
+                        <viewControllerLayoutGuide type="bottom" id="cge-8g-Z4q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AAa-vW-a1V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OR6-kq-TSi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QGq-E1-RFK">
+                                    <size key="itemSize" width="172" height="151"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UploadImageCollectionViewCell" id="Flr-eW-K00" customClass="UploadImageCollectionViewCell" customModule="UploadImageDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-PM-fBi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                </imageView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gln-3z-fkp">
+                                                    <rect key="frame" x="10" y="59" width="100" height="2"/>
+                                                </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRJ-tv-Sgp">
+                                                    <rect key="frame" x="29.5" y="82" width="61" height="28"/>
+                                                    <color key="backgroundColor" red="0.98670800000000003" green="0.15346599999999999" blue="0.17621200000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
+                                                    <state key="normal" title="重试">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="rRJ-tv-Sgp" secondAttribute="bottom" constant="10" id="3X9-0s-gcr"/>
+                                            <constraint firstAttribute="trailing" secondItem="gln-3z-fkp" secondAttribute="trailing" constant="10" id="D8O-6J-1l3"/>
+                                            <constraint firstItem="tUT-PM-fBi" firstAttribute="top" secondItem="Flr-eW-K00" secondAttribute="top" id="Iw5-Tm-HRI"/>
+                                            <constraint firstItem="gln-3z-fkp" firstAttribute="leading" secondItem="Flr-eW-K00" secondAttribute="leading" constant="10" id="cIv-ik-FPm"/>
+                                            <constraint firstAttribute="bottom" secondItem="tUT-PM-fBi" secondAttribute="bottom" id="cVO-GA-Asq"/>
+                                            <constraint firstItem="rRJ-tv-Sgp" firstAttribute="centerX" secondItem="Flr-eW-K00" secondAttribute="centerX" id="mY4-Th-aeW"/>
+                                            <constraint firstAttribute="trailing" secondItem="tUT-PM-fBi" secondAttribute="trailing" id="oaN-K3-JoO"/>
+                                            <constraint firstItem="tUT-PM-fBi" firstAttribute="leading" secondItem="Flr-eW-K00" secondAttribute="leading" id="xx5-Mn-IsW"/>
+                                            <constraint firstItem="gln-3z-fkp" firstAttribute="centerY" secondItem="Flr-eW-K00" secondAttribute="centerY" id="zaQ-Fv-z6g"/>
+                                        </constraints>
+                                        <size key="customSize" width="120" height="120"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="tUT-PM-fBi" id="hNm-PE-Xfu"/>
+                                            <outlet property="progressView" destination="gln-3z-fkp" id="evw-2p-gjE"/>
+                                            <outlet property="retryButton" destination="rRJ-tv-Sgp" id="NXa-wl-pFd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OR6-kq-TSi" secondAttribute="trailing" id="28o-Lw-48g"/>
+                            <constraint firstItem="cge-8g-Z4q" firstAttribute="top" secondItem="OR6-kq-TSi" secondAttribute="bottom" id="YqQ-Ra-Jnz"/>
+                            <constraint firstItem="OR6-kq-TSi" firstAttribute="leading" secondItem="AAa-vW-a1V" secondAttribute="leading" id="l8c-J6-7cM"/>
+                            <constraint firstItem="OR6-kq-TSi" firstAttribute="top" secondItem="3wy-9a-fka" secondAttribute="bottom" id="zWx-Gm-gbH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pyJ-t3-eSf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y7c-sK-SQ8"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="Y7c-sK-SQ8" id="sF1-7s-YuS"/>
+                        <outlet property="collectionView" destination="OR6-kq-TSi" id="gnT-wC-C59"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vWJ-kz-0ym" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.80000000000001" y="160.56971514242881"/>
+        </scene>
+    </scenes>
+</document>

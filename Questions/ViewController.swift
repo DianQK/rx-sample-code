@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             cell.displayImageView.image = element.image
             element.isSelected.asObservable().filterNil()
                 .bindTo(cell.rx.isSelected)
-                .addDisposableTo(cell.prepareForReuseBag)
+                .disposed(by: cell.prepareForReuseBag)
             return cell
         }
 
@@ -90,13 +90,13 @@ class ViewController: UIViewController {
                 }
                 self.questions.value.append(self.createQuestion(for: self.questions.value.count + 1))
             })
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
         
-        questionsCollectionView.rx.setDelegate(self).addDisposableTo(rx.disposeBag)
+        questionsCollectionView.rx.setDelegate(self).disposed(by: rx.disposeBag)
 
         questions.asObservable()
             .bindTo(questionsCollectionView.rx.items(dataSource: dataSource))
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
         
         let result = questions.asObservable().map { $0.flatMap { $0.items } }
             .flatMap { options -> Observable<[Int]> in
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
             .subscribe(onNext: { [unowned self] in
                 self.questions.value = self.defaultQuestions
             })
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
     }
     

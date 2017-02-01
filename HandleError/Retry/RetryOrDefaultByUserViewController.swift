@@ -12,6 +12,24 @@ import RxCocoa
 import RxExtensions
 import RandomKit
 
+extension ObservableType {
+
+    public func retryWithBinaryExponentialBackoff(maxAttemptCount: Int, interval: TimeInterval) -> Observable<Self.E> {
+        return self.asObservable()
+            .retryWhen { (errorObservable: Observable<Swift.Error>) -> Observable<()> in
+                errorObservable
+                    .scan((currentCount: 0, error: Optional<Swift.Error>.none), accumulator: { a, error in
+                        return (currentCount: a.currentCount + 1, error: error)
+                    })
+                    .flatMap({ (currentCount, error) -> Observable<()> in
+                        return ((currentCount > maxAttemptCount) ? Observable.error(error!) : Observable.just(()))
+                            .delay(pow(2, Double(currentCount)) * interval, scheduler: MainScheduler.instance)
+                    })
+            }
+    }
+
+}
+
 class RetryOrDefaultByUserViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
@@ -39,7 +57,8 @@ class RetryOrDefaultByUserViewController: UIViewController {
 
         Observable<Int>
             .deferred { () -> Observable<Int> in
-                return Observable.just(Int.random(within: -100...200))
+                return Observable.just(-100)
+//                return Observable.just(Int.random(within: -100...200))
             }
             .map { value -> Int in
                 if value <= 0 {
@@ -50,26 +69,30 @@ class RetryOrDefaultByUserViewController: UIViewController {
                     return value
                 }
             }
-            .catchError { (error) -> Observable<Int> in
-                return Observable.create { [unowned self] observer in
-                    let alert = UIAlertController(title: "遇到了一个错误，重试还是使用默认值 1 替换？", message: "错误信息：\(error.localizedDescription)", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "重试", style: .cancel, handler: { _ in
-                        observer.on(.error(error))
-                    }))
-                    alert.addAction(UIAlertAction(title: "替换", style: .default, handler: { _ in
-                        observer.on(.next(1))
-                        observer.on(.completed)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                    return Disposables.create {
-                        alert.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
-            .retry()
+            .retryWithBinaryExponentialBackoff(maxAttemptCount: 10, interval: 1)
+
+
+
+//            .catchError { (error) -> Observable<Int> in
+//                return Observable.create { [unowned self] observer in
+//                    let alert = UIAlertController(title: "遇到了一个错误，重试还是使用默认值 1 替换？", message: "错误信息：\(error.localizedDescription)", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "重试", style: .cancel, handler: { _ in
+//                        observer.on(.error(error))
+//                    }))
+//                    alert.addAction(UIAlertAction(title: "替换", style: .default, handler: { _ in
+//                        observer.on(.next(1))
+//                        observer.on(.completed)
+//                    }))
+//                    self.present(alert, animated: true, completion: nil)
+//                    return Disposables.create {
+//                        alert.dismiss(animated: true, completion: nil)
+//                    }
+//                }
+//            }
+//            .retry()
             .debug()
             .subscribe()
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     

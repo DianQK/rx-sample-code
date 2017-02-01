@@ -51,7 +51,7 @@ class SelectPaymentViewController: UIViewController {
             selectedPayment
                 .map { $0 == payment }
                 .bindTo(cell.rx.isSelectedPayment)
-                .addDisposableTo(cell.rx.prepareForReuseBag)
+                .disposed(by: cell.rx.prepareForReuseBag)
             return cell
         }
 
@@ -60,7 +60,7 @@ class SelectPaymentViewController: UIViewController {
         tableView
             .rx.modelSelected(Payment.self)
             .bindTo(selectPayment.select)
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
         let paymentSection = PaymentSectionModel(
             model: selectPayment,
@@ -68,15 +68,15 @@ class SelectPaymentViewController: UIViewController {
 
         Observable.just([paymentSection])
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
-        tableView.rx.enableAutoDeselect().addDisposableTo(rx.disposeBag)
+        tableView.rx.enableAutoDeselect().disposed(by: rx.disposeBag)
 
         do {
             selectPayment.select.asObservable()
                 .map { $0.name }
                 .bindTo(self.rx.title)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
     }
 

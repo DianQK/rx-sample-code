@@ -38,7 +38,7 @@ open class RxTableViewSectionedAnimatedOrReloadDataSource<S: AnimatableSectionMo
                 DispatchQueue.main.async {
                     let oldSections = dataSource.sectionModels
                     do {
-                        let differences = try differencesForSectionedView(oldSections, finalSections: newSectionlist.sectionModels)
+                        let differences = try differencesForSectionedView(initialSections: oldSections, finalSections: newSectionlist.sectionModels)
                         
                         for difference in differences {
                             dataSource.setSections(difference.finalSections)

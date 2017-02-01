@@ -28,7 +28,7 @@ class CellIdentifierViewController: UIViewController {
             .bindTo(tableView.rx.items(cellIdentifier: "BasicCell", cellType: UITableViewCell.self)) { (row, element, cell) in
                 cell.textLabel?.text = "\(element) @ row \(row)"
             }
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
     }
 
 }

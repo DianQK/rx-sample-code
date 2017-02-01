@@ -80,6 +80,8 @@ class RefreshTableViewController: UITableViewController {
         super.viewDidLoad()
 
         do {
+            tableView.dataSource = nil
+            tableView.delegate = nil
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 60
         }
@@ -101,7 +103,7 @@ class RefreshTableViewController: UITableViewController {
                     safari.preferredControlTintColor = UIColor.black
                     self.showDetailViewController(safari, sender: nil)
                 })
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
@@ -119,17 +121,17 @@ class RefreshTableViewController: UITableViewController {
 
             response
                 .bindTo(tableView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
 
             Observable.from([refresh.skip(1).map { true }, response.skip(1).map { _ in false }])
                 .merge()
-                .bindTo(refreshControl.rx.refreshing)
-                .addDisposableTo(rx.disposeBag)
+                .bindTo(refreshControl.rx.isRefreshing)
+                .disposed(by: rx.disposeBag)
 
             Observable.from([refresh.take(1).map { true }, response.take(1).map { _ in false }])
                 .merge()
                 .bindTo(isLoading(for: tableView))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

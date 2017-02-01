@@ -81,7 +81,7 @@ Observable
         lastName.asObservable()
     ) { $0 + " " + $1 }
     .bindTo(title)
-    .addDisposableTo(disposeBag)
+    .disposed(by: disposeBag)
                 id = "fullname"
             case .dateOfBirth:
                 let date = Variable(Date())
@@ -90,7 +90,7 @@ Observable
 date.asObservable()
     .map(DateFormatter().config.longStyle.string)
     .bindTo(title)
-                    .addDisposableTo(disposeBag)
+                    .disposed(by: disposeBag)
                 id = "dateOfBirth"
             case .maritalStatus:
                 let isMarried = Variable(true)
@@ -100,7 +100,7 @@ isMarried.asObservable()
     .skip(1)
     .map { $0 ? "Married" : "Single" }
     .bindTo(title)
-                    .addDisposableTo(disposeBag)
+                    .disposed(by: disposeBag)
                 id = "maritalStatus"
             case .favoriteColor:
                 let red = ProfileItem(type: .input(.title("Red", favorite: title)))
@@ -122,7 +122,7 @@ isMarried.asObservable()
                 level.asObservable()
                     .map(String.init)
                     .bindTo(title)
-                    .addDisposableTo(disposeBag)
+                    .disposed(by: disposeBag)
                 id = "level"
             }
             do { // 选择好后，直接收起子项目
@@ -133,7 +133,7 @@ isMarried.asObservable()
                         .subscribe(onNext: { _ in
                             isExpanded.value = !isExpanded.value
                         })
-                        .addDisposableTo(disposeBag)
+                        .disposed(by: disposeBag)
                 default: break
                 }
             }

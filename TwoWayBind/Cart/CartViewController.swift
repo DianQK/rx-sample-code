@@ -57,13 +57,13 @@ class CartViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.productTableViewCell, for: indexPath)!
             cell.name = product.name
             cell.setUnitPrice(product.unitPrice)
-            (cell.rx_count <-> product.count).addDisposableTo(cell.rx.prepareForReuseBag)
+            (cell.rx_count <-> product.count).disposed(by: cell.rx.prepareForReuseBag)
             return cell
         }
 
         sectionInfo
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
         let totalPrice = sectionInfo
             .map { $0.flatMap { $0.items } }
@@ -76,14 +76,14 @@ class CartViewController: UIViewController {
         totalPrice
             .map { "总价：\($0) 元" }
             .bindTo(totalPriceLabel.rx.text)
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
         totalPrice
             .map { $0 != 0 }
             .bindTo(purchaseButton.rx.isEnabled)
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
-        tableView.rx.enableAutoDeselect().addDisposableTo(rx.disposeBag)
+        tableView.rx.enableAutoDeselect().disposed(by: rx.disposeBag)
 
     }
 

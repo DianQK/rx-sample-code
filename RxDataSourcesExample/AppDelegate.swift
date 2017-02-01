@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  RxDataSourcesExample
+//  rx-sample-code
 //
-//  Created by DianQK on 03/10/2016.
-//  Copyright © 2016 T. All rights reserved.
+//  Created by DianQK on 01/02/2017.
+//  Copyright © 2017 T. All rights reserved.
 //
 
 import UIKit
@@ -12,5 +12,5 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 }

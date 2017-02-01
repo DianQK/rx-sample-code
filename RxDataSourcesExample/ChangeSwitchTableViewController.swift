@@ -29,6 +29,9 @@ class ChangeSwitchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         let items = [
             Option(title: "选项一", isOn: true),
             Option(title: "选项二", isOn: false),
@@ -45,16 +48,16 @@ class ChangeSwitchTableViewController: UITableViewController {
                 .subscribe(onNext: { [unowned self] in
                     _ = self.navigationController?.popViewController(animated: true)
                 })
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
             Observable.just(items)
                 .bindTo(tableView.rx.items(cellIdentifier: "TipTableViewCell", cellType: TipTableViewCell.self)) { (row, element, cell) in
                     cell.title = element.title
-                    (cell.rx.isOn <-> element.isOn).addDisposableTo(cell.disposeBag)
+                    (cell.rx.isOn <-> element.isOn).disposed(by: cell.disposeBag)
                 }
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }

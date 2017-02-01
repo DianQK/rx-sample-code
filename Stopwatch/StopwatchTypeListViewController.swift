@@ -40,11 +40,11 @@ class StopwatchTypeListViewController: UIViewController {
             .bindTo(listTableView.rx.items(cellIdentifier: "ListTableViewCell")) { index, element, cell in
                 cell.textLabel?.text = element.title
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         listTableView.rx.itemSelected.map { (at: $0, animated: true) }
             .subscribe(onNext: listTableView.deselectRow)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         listTableView.rx.modelSelected(Item.self)
             .subscribe(onNext: { [unowned self] item in
@@ -52,7 +52,7 @@ class StopwatchTypeListViewController: UIViewController {
                 stopwatchViewController.type = item.type
                 self.show(stopwatchViewController, sender: nil)
                 })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 }

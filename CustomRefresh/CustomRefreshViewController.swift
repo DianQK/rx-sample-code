@@ -17,7 +17,7 @@ class CustomRefreshViewController: UIViewController {
     @IBOutlet private weak var refreshBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var refreshWithAnimatedBarButtonItem: UIBarButtonItem!
     @IBOutlet private weak var tableView: UITableView!
-    
+
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class CustomRefreshViewController: UIViewController {
                 return RefreshSectionList(sectionModels: a.randomizer.sections, isRefresh: a.isRefresh)
             }
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     
     }
     

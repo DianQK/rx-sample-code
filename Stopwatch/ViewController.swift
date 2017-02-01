@@ -32,23 +32,23 @@ class ViewController: UIViewController {
         do { // MARK: 展示时间
             viewModel.displayTime
                 .bindTo(displayTimeLabel.rx.text)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         viewModel.resetALapStyle
             .bindTo(resetButton.rx.style)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         viewModel.startAStopStyle
             .bindTo(startButton.rx.style)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         viewModel.displayElements
             .bindTo(lapsTableView.rx.items(cellIdentifier: "LapTableViewCell")) { index, element, cell in
                 guard let detailTextLabel = cell.detailTextLabel else { return }
-                element.displayTime.bindTo(detailTextLabel.rx.text).addDisposableTo(cell.rx.prepareForReuseBag)
-                element.color.bindTo(detailTextLabel.rx.textColor).addDisposableTo(cell.rx.prepareForReuseBag)
+                element.displayTime.bindTo(detailTextLabel.rx.text).disposed(by: cell.rx.prepareForReuseBag)
+                element.color.bindTo(detailTextLabel.rx.textColor).disposed(by: cell.rx.prepareForReuseBag)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

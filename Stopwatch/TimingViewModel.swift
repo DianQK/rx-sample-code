@@ -68,7 +68,7 @@ struct TimingViewModel: StopwatchViewModelProtocol {
             ])
             .merge()
             .subscribe(onNext: inputObserver.onNext)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         let state = automaton.state.asObservable().shareReplay(1)
         

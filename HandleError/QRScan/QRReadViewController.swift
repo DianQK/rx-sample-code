@@ -91,7 +91,7 @@ class QRReadViewController: UIViewController {
             }
             .debug()
             .subscribe()
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

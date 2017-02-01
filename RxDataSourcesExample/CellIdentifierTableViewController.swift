@@ -26,6 +26,9 @@ class CellIdentifierTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         let items = Observable.just([
             Option(title: "选项一", isOn: true),
             Option(title: "选项二", isOn: false),
@@ -37,7 +40,7 @@ class CellIdentifierTableViewController: UITableViewController {
                 cell.title = element.title
                 cell.isOn = element.isOn
             }
-            .addDisposableTo(rx.disposeBag)
+            .disposed(by: rx.disposeBag)
 
     }
 

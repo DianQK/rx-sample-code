@@ -27,6 +27,9 @@ class TodoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = nil
+        tableView.delegate = nil
+
         do {
             dataSource.configureCell = { (dataSource, tableView, indexPath, element) in
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.basicCell, for: indexPath)!
@@ -61,14 +64,14 @@ class TodoTableViewController: UITableViewController {
                 .startWith(defaultTodoList)
                 .map { [TodoSectionModel(model: "", items: $0)] }
                 .bindTo(tableView.rx.items(dataSource: dataSource))
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
         do {
             tableView.rx.itemSelected
                 .map { (at: $0, animated: true) }
                 .subscribe(onNext: tableView.deselectRow)
-                .addDisposableTo(rx.disposeBag)
+                .disposed(by: rx.disposeBag)
         }
 
     }
