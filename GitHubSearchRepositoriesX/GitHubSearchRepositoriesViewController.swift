@@ -129,6 +129,7 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
             .combineLatest(searchResult.map { $0.repositories.isEmpty }, GitHubSearchRepositoriesAPI.sharedAPI.activityIndicator) { $0 && $1 }
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
+        
     }
 
     // MARK: Table view delegate

@@ -319,6 +319,10 @@
 		266B1ECE1E41C8440034442F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF51E4191F80034442F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266B1ECF1E41C8440034442F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF81E4191F80034442F /* RxSwift.framework */; };
 		266B1ED01E41C8440034442F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF81E4191F80034442F /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		560FBE971E7E4F0D007F28FC /* UploadImageTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FBE961E7E4F0D007F28FC /* UploadImageTestViewController.swift */; };
+		560FBE981E7E5095007F28FC /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1C831E4194550034442F /* MBProgressHUD.framework */; };
+		560FBE991E7E5095007F28FC /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1C831E4194550034442F /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		560FBE9C1E7E6776007F28FC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560FBE9B1E7E6776007F28FC /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -399,6 +403,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				266B1C971E4194630034442F /* RxExtensions.framework in Embed Frameworks */,
+				560FBE991E7E5095007F28FC /* MBProgressHUD.framework in Embed Frameworks */,
 				266B1C931E4194630034442F /* RxCocoa.framework in Embed Frameworks */,
 				266B1C991E4194630034442F /* RxSwift.framework in Embed Frameworks */,
 				266B1C8D1E4194630034442F /* RandomKit.framework in Embed Frameworks */,
@@ -752,6 +757,8 @@
 		266B1EC21E41C7EA0034442F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266B1EC51E41C7EA0034442F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		266B1EC71E41C7EA0034442F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560FBE961E7E4F0D007F28FC /* UploadImageTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageTestViewController.swift; sourceTree = "<group>"; };
+		560FBE9B1E7E6776007F28FC /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -815,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				266B1C8C1E4194630034442F /* RandomKit.framework in Frameworks */,
+				560FBE981E7E5095007F28FC /* MBProgressHUD.framework in Frameworks */,
 				266B1C8E1E4194630034442F /* ShiftOperations.framework in Frameworks */,
 				266B1C921E4194630034442F /* RxCocoa.framework in Frameworks */,
 				266B1C7F1E4194550034442F /* RxExtensions.framework in Frameworks */,
@@ -1137,6 +1145,7 @@
 		266B1C5E1E4193F70034442F /* HandleError */ = {
 			isa = PBXGroup;
 			children = (
+				560FBE9B1E7E6776007F28FC /* ActivityIndicator.swift */,
 				266B1C6F1E4194180034442F /* QRScan */,
 				266B1C731E4194180034442F /* Retry */,
 				266B1C5F1E4193F70034442F /* AppDelegate.swift */,
@@ -1144,6 +1153,7 @@
 				266B1C661E4193F70034442F /* Assets.xcassets */,
 				266B1C681E4193F70034442F /* LaunchScreen.storyboard */,
 				266B1C6B1E4193F70034442F /* Info.plist */,
+				560FBE961E7E4F0D007F28FC /* UploadImageTestViewController.swift */,
 			);
 			path = HandleError;
 			sourceTree = "<group>";
@@ -2014,9 +2024,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560FBE971E7E4F0D007F28FC /* UploadImageTestViewController.swift in Sources */,
 				266B1C781E4194180034442F /* RxAVCaptureMetadataOutputObjectsDelegateProxy.swift in Sources */,
 				266B1C601E4193F70034442F /* AppDelegate.swift in Sources */,
 				266B1C7A1E4194180034442F /* RetryOrDefaultByUserViewController.swift in Sources */,
+				560FBE9C1E7E6776007F28FC /* ActivityIndicator.swift in Sources */,
 				266B1C761E4194180034442F /* QRReadViewController.swift in Sources */,
 				266B1C771E4194180034442F /* QRScanResultViewController.swift in Sources */,
 				266B1C791E4194180034442F /* RetryByUserViewController.swift in Sources */,
