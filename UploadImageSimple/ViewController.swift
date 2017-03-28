@@ -91,9 +91,60 @@ class ViewController: UIViewController {
             .drive(hud.rx.isProgressing)
             .disposed(by: disposeBag)
 
+//        flatMapFirst { (images) -> Driver<[Any]> in
+//            let imageCount = images.count
+//            var count = 0
+//            hud.detailsLabel.text = "(\(count)/\(imageCount))"
+//            let uploadedImage = images
+//                .map { URLSession.shared.rx.json(url: URL(string: "https://httpbin.org/get?image=\($0)")!)
+//                    .observeOn(MainScheduler.instance)
+//                    .do(onNext: { _ in
+//                        count += 1
+//                        hud.detailsLabel.text = "(\(count)/\(imageCount))"
+//                    })
+//            }
+//            return Observable.combineLatest(uploadedImage)
+//                .observeOn(MainScheduler.instance)
+//                .takeUntil(cancel) // toArray 后面
+//                .trackActivity(uploadActivityIndicator)
+//                .asDriverJustCompleted(showMessageView: view)
+//        }
+
+
+
+//            .flatMapFirst { (images) -> Driver<(completedCount: Int, totalCount: Int)> in
+//                let imageCount = images.count
+//                let uploadedImage = images.map { URLSession.shared.rx.json(url: URL(string: "https://httpbin.org/get?image=\($0)")!) }
+//                return Observable.concat(uploadedImage)
+//                    .mapWithIndex({ (result, index) -> (result: Any, index: Int) in
+//                        return (result: result, index: index)
+//                    })
+//                    .observeOn(MainScheduler.instance)
+//                    .do(onNext: { (_, index) in
+//                        hud.detailsLabel.text = "(\(index + 1)/\(imageCount))"
+//                    }, onSubscribe: {
+//                        hud.detailsLabel.text = "(\(0)/\(imageCount))"
+//                    })
+//                    .map { $0.0 }
+//                    .takeUntil(cancel) // toArray 后面
+//                    .toArray()
+//                    .map({ (uploadedImages) -> (completedCount: Int, totalCount: Int) in
+//                        return (completedCount: uploadedImages.count, totalCount: imageCount)
+//                    })
+//                    .trackActivity(uploadActivityIndicator)
+//                    .asDriverJustCompleted(showMessageView: view)
+//            }
+//            .map { (completedCount: Int, totalCount: Int) -> String in
+//                if completedCount < totalCount {
+//                    return "上传 \(totalCount) 张，完成 \(completedCount) 张"
+//                } else {
+//                    return "全部上传成功"
+//                }
+//        }
+
         button.rx.tap.asDriver()
             .map { (1...9) }
-            .flatMapFirst { (images) -> Driver<[Any]> in
+            .flatMapFirst { (images) -> Driver<(completedCount: Int, totalCount: Int)> in
                 let imageCount = images.count
                 let uploadedImage = images.map { URLSession.shared.rx.json(url: URL(string: "https://httpbin.org/get?image=\($0)")!) }
                 return Observable.concat(uploadedImage)
@@ -107,12 +158,21 @@ class ViewController: UIViewController {
                         hud.detailsLabel.text = "(\(0)/\(imageCount))"
                     })
                     .map { $0.0 }
+                    .takeUntil(cancel)
                     .toArray()
-                    .takeUntil(cancel) // toArray 后面
+                    .map({ (uploadedImages) -> (completedCount: Int, totalCount: Int) in
+                        return (completedCount: uploadedImages.count, totalCount: imageCount)
+                    })
                     .trackActivity(uploadActivityIndicator)
                     .asDriverJustCompleted(showMessageView: view)
             }
-            .map { _ in "上传成功" }
+            .map { (completedCount: Int, totalCount: Int) -> String in
+                if completedCount < totalCount {
+                    return "上传 \(totalCount) 张，完成 \(completedCount) 张"
+                } else {
+                    return "全部上传成功"
+                }
+            }
             .drive(self.view.rx.message)
             .disposed(by: disposeBag)
 
