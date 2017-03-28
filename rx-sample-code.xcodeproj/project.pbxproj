@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260FAEB31E8A7435005010AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FAEB21E8A7435005010AA /* AppDelegate.swift */; };
+		260FAEB51E8A7435005010AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FAEB41E8A7435005010AA /* ViewController.swift */; };
+		260FAEB81E8A7435005010AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260FAEB61E8A7435005010AA /* Main.storyboard */; };
+		260FAEBA1E8A7435005010AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 260FAEB91E8A7435005010AA /* Assets.xcassets */; };
+		260FAEBD1E8A7435005010AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 260FAEBB1E8A7435005010AA /* LaunchScreen.storyboard */; };
+		260FAEC31E8A749D005010AA /* LocalAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260FAEC21E8A749D005010AA /* LocalAuthenticationService.swift */; };
+		260FAEC41E8A7518005010AA /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF51E4191F80034442F /* RxCocoa.framework */; };
+		260FAEC51E8A7518005010AA /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF51E4191F80034442F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		260FAEC61E8A7518005010AA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF81E4191F80034442F /* RxSwift.framework */; };
+		260FAEC71E8A7518005010AA /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 266B1BF81E4191F80034442F /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2618572C1E779ABE002CAFD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2618572B1E779ABE002CAFD3 /* AppDelegate.swift */; };
 		261857331E779ABE002CAFD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 261857321E779ABE002CAFD3 /* Assets.xcassets */; };
 		261857361E779ABE002CAFD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 261857341E779ABE002CAFD3 /* LaunchScreen.storyboard */; };
@@ -326,6 +336,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		260FAEC81E8A7518005010AA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				260FAEC71E8A7518005010AA /* RxSwift.framework in Embed Frameworks */,
+				260FAEC51E8A7518005010AA /* RxCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		261857471E779B26002CAFD3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,6 +558,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		260FAEB01E8A7435005010AA /* LocalAuthenticationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalAuthenticationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		260FAEB21E8A7435005010AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		260FAEB41E8A7435005010AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		260FAEB71E8A7435005010AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		260FAEB91E8A7435005010AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		260FAEBC1E8A7435005010AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		260FAEBE1E8A7435005010AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		260FAEC21E8A749D005010AA /* LocalAuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationService.swift; sourceTree = "<group>"; };
 		261857291E779ABE002CAFD3 /* GitHubSearchRepositoriesX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubSearchRepositoriesX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2618572B1E779ABE002CAFD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		261857321E779ABE002CAFD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -762,6 +792,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		260FAEAD1E8A7435005010AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				260FAEC61E8A7518005010AA /* RxSwift.framework in Frameworks */,
+				260FAEC41E8A7518005010AA /* RxCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		261857261E779ABE002CAFD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -930,6 +969,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260FAEB11E8A7435005010AA /* LocalAuthenticationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				260FAEB21E8A7435005010AA /* AppDelegate.swift */,
+				260FAEB41E8A7435005010AA /* ViewController.swift */,
+				260FAEB61E8A7435005010AA /* Main.storyboard */,
+				260FAEB91E8A7435005010AA /* Assets.xcassets */,
+				260FAEBB1E8A7435005010AA /* LaunchScreen.storyboard */,
+				260FAEBE1E8A7435005010AA /* Info.plist */,
+				260FAEC21E8A749D005010AA /* LocalAuthenticationService.swift */,
+			);
+			path = LocalAuthenticationDemo;
+			sourceTree = "<group>";
+		};
 		2618572A1E779ABE002CAFD3 /* GitHubSearchRepositoriesX */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1079,7 @@
 				2618572A1E779ABE002CAFD3 /* GitHubSearchRepositoriesX */,
 				261857731E77C958002CAFD3 /* Form */,
 				262D1E901E84F3E600C8C34B /* UploadImageSimple */,
+				260FAEB11E8A7435005010AA /* LocalAuthenticationDemo */,
 				266B1B931E4190350034442F /* Products */,
 				266B1BF31E4191F70034442F /* Frameworks */,
 			);
@@ -1048,6 +1102,7 @@
 				261857291E779ABE002CAFD3 /* GitHubSearchRepositoriesX.app */,
 				261857721E77C958002CAFD3 /* Form.app */,
 				262D1E8F1E84F3E600C8C34B /* UploadImageSimple.app */,
+				260FAEB01E8A7435005010AA /* LocalAuthenticationDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1418,6 +1473,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		260FAEAF1E8A7435005010AA /* LocalAuthenticationDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 260FAEC11E8A7435005010AA /* Build configuration list for PBXNativeTarget "LocalAuthenticationDemo" */;
+			buildPhases = (
+				260FAEAC1E8A7435005010AA /* Sources */,
+				260FAEAD1E8A7435005010AA /* Frameworks */,
+				260FAEAE1E8A7435005010AA /* Resources */,
+				260FAEC81E8A7518005010AA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalAuthenticationDemo;
+			productName = LocalAuthenticationDemo;
+			productReference = 260FAEB01E8A7435005010AA /* LocalAuthenticationDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		261857281E779ABE002CAFD3 /* GitHubSearchRepositoriesX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2618573A1E779ABE002CAFD3 /* Build configuration list for PBXNativeTarget "GitHubSearchRepositoriesX" */;
@@ -1676,10 +1749,15 @@
 		266B1B8A1E4190350034442F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = T;
 				TargetAttributes = {
+					260FAEAF1E8A7435005010AA = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 9Y9KG3KBHJ;
+						ProvisioningStyle = Automatic;
+					};
 					261857281E779ABE002CAFD3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9Y9KG3KBHJ;
@@ -1779,11 +1857,22 @@
 				261857281E779ABE002CAFD3 /* GitHubSearchRepositoriesX */,
 				261857711E77C958002CAFD3 /* Form */,
 				262D1E8E1E84F3E600C8C34B /* UploadImageSimple */,
+				260FAEAF1E8A7435005010AA /* LocalAuthenticationDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		260FAEAE1E8A7435005010AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				260FAEBD1E8A7435005010AA /* LaunchScreen.storyboard in Resources */,
+				260FAEBA1E8A7435005010AA /* Assets.xcassets in Resources */,
+				260FAEB81E8A7435005010AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		261857271E779ABE002CAFD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1931,6 +2020,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		260FAEAC1E8A7435005010AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				260FAEC31E8A749D005010AA /* LocalAuthenticationService.swift in Sources */,
+				260FAEB51E8A7435005010AA /* ViewController.swift in Sources */,
+				260FAEB31E8A7435005010AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		261857251E779ABE002CAFD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2168,6 +2267,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		260FAEB61E8A7435005010AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				260FAEB71E8A7435005010AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		260FAEBB1E8A7435005010AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				260FAEBC1E8A7435005010AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		261857341E779ABE002CAFD3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2395,6 +2510,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		260FAEBF1E8A7435005010AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 9Y9KG3KBHJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = LocalAuthenticationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.dianqk.LocalAuthenticationDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		260FAEC01E8A7435005010AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 9Y9KG3KBHJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = LocalAuthenticationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.dianqk.LocalAuthenticationDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		261857381E779ABE002CAFD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2969,6 +3122,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		260FAEC11E8A7435005010AA /* Build configuration list for PBXNativeTarget "LocalAuthenticationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				260FAEBF1E8A7435005010AA /* Debug */,
+				260FAEC01E8A7435005010AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2618573A1E779ABE002CAFD3 /* Build configuration list for PBXNativeTarget "GitHubSearchRepositoriesX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -35,7 +35,8 @@ platform :ios do
       "Concurrency",
       "GitHubSearchRepositoriesX",
       "Form",
-      "UploadImageSimple"
+      "UploadImageSimple",
+      "LocalAuthenticationDemo"
     ].each do |scheme|
       xcodebuild(scheme: scheme, project: "rx-sample-code.xcodeproj")
     end
