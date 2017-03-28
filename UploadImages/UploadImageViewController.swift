@@ -96,9 +96,12 @@ class UploadImageViewController: UIViewController {
                             })
                     }
                     return image.flatMap { image -> Observable<UploadImageModel> in
-                        let progress = progress.debug().replay(1)
-                        _ = progress.connect()
-                        return Observable.just(UploadImageModel(asset: asset, progress: progress, displayImage: image, retry: retry.asObserver(), error: errorSubject.asObservable()))
+                        return Observable.create({ (observer) -> Disposable in
+                            let progress = progress.debug().replay(1)
+                            observer.onNext(UploadImageModel(asset: asset, progress: progress, displayImage: image, retry: retry.asObserver(), error: errorSubject.asObservable()))
+                            observer.onCompleted()
+                            return progress.connect()
+                        })
                     }
                 }
 
