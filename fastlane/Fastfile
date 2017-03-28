@@ -31,7 +31,11 @@ platform :ios do
       "CustomRefresh",
       "TextInput",
       "UploadImages",
-      "YepRecord"
+      "YepRecord",
+      "Concurrency",
+      "GitHubSearchRepositoriesX",
+      "Form",
+      "UploadImageSimple"
     ].each do |scheme|
       xcodebuild(scheme: scheme, project: "rx-sample-code.xcodeproj")
     end

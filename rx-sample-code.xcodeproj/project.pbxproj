@@ -2910,6 +2910,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.t.YepRecord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2927,6 +2928,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.t.YepRecord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2992,6 +2994,7 @@
 				262D1E9F1E84F3E600C8C34B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		266B1B8D1E4190350034442F /* Build configuration list for PBXProject "rx-sample-code" */ = {
 			isa = XCConfigurationList;

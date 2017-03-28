@@ -13,7 +13,7 @@ import RxDataSources
 import RxExtensions
 
 struct ProductInfo {
-    let id: Int64
+    let id: Int
     let name: String
     let unitPrice: Int
     let count: Variable<Int>
@@ -23,7 +23,7 @@ extension ProductInfo: Hashable, Equatable, IdentifiableType {
     var hashValue: Int {
         return id.hashValue
     }
-    var identity: Int64 {
+    var identity: Int {
         return id
     }
 
